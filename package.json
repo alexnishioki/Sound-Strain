@@ -1,7 +1,6 @@
 {
   "name": "newaudio",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,9 +10,31 @@
   "license": "ISC",
   "dependencies": {
     "angular-tooltips": "^1.0.8",
+    "bluebird": "file:node_modules/bluebird",
+    "body-parser": "file:node_modules/body-parser",
+    "express": "file:node_modules/express",
+    "fs": "0.0.2",
     "glob": "^7.0.3",
+    "jquery-file-upload-middleware": "file:node_modules/jquery-file-upload-middleware",
+    "knex": "file:node_modules/knex",
+    "mkdirp": "file:node_modules/mkdirp",
     "moment": "^2.12.0",
+    "ng-audio": "file:node_modules/ng-audio",
     "ng-file-upload": "^12.0.4",
-    "request-promise": "^2.0.1"
-  }
+    "path": "^0.12.7",
+    "pg": "file:node_modules/pg",
+    "request-promise": "^2.0.1",
+    "rmdir": "file:node_modules/rmdir"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexnishioki/newAudio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alexnishioki/newAudio/issues"
+  },
+  "homepage": "https://github.com/alexnishioki/newAudio#readme",
+  "keywords": [],
+  "description": ""
 }
