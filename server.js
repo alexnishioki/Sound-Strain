@@ -3,7 +3,6 @@ var express = require('express'),
 	pg = require('pg'),
 	path = require('path'),
 	knex = require('./db/knex'),
-	path = require('path'),
 	requestP = require('request-promise'),
 	fs = require('fs'),
 	glob = require('glob'),
@@ -69,7 +68,7 @@ var express = require('express'),
 				}) 
   			},3000)
 		})
-			res.end('It worked!')
+			res.end('correct')
 	})
 			
 

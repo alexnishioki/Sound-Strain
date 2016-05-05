@@ -647,6 +647,25 @@ vertical-align: middle;
 
 }
 
+/*...........................shared_test..........................*/
+
+#shared_test{
+	position:fixed;
+	bottom:100px;
+	left:20px;
+}
+
+#list_shared_tracks{
+	position:relative;
+}
+
+/*...........................btn_reset..........................*/
+
+
+/*...........................btn_share..........................*/
+
+
+
 /*...........................recording-control-animation..........................*/
 
 @keyframes x {

@@ -25,6 +25,7 @@
     <button class='btn btn-default stop' id='pause' >PAUSE</button>
     <button class='btn btn-default playSound' id='delete'
      ng-click="deleteTrack(selected.id,selected.name,selected.name);updateSound()">DELETE</button>
+     <h4 id="shared_test">{{shared_tracks}}</h4>
       <!-- <ul style='position:absolute;top:540px;left:30px;color:black'><h3 ng-repeat='(key,val) in selected'>{{key}}  -  {{val}}</h3>
       </ul> -->
 </div>
@@ -66,6 +67,9 @@
 </table>
 <button class='btn' ng-click='submit_shares(shared_user_target);updateSound();shared_user_target=null;updateSound()' >share tracks</button>
 <button class='btn' ng-click='reset_shares()' >reset tracklist</button>
+<ul ng-repeat='tracks in shared_tracks'>
+<li>{{tracks.name}}</li>
+</ul>
 
 <!-- <ul id='shared_list' ng-repeat='item in shared_tracks'><li>{{item}}</li></ul>
  --></div>
