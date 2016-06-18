@@ -3,6 +3,7 @@ var express = require('express'),
 	pg = require('pg'),
 	path = require('path'),
 	knex = require('./db/knex'),
+	path = require('path'),
 	requestP = require('request-promise'),
 	fs = require('fs'),
 	glob = require('glob'),
@@ -68,7 +69,7 @@ var express = require('express'),
 				}) 
   			},3000)
 		})
-			res.end('correct')
+			res.end('It worked!')
 	})
 			
 
@@ -162,7 +163,7 @@ app.post('/api/recordinglocation',function(req,res) {
 				setTimeout(function() {
 				console.log(name)
 			child_process 
-			.exec("cd ../../downloads && mv *distinctpersonalaudiofile* ../AudioRecorder/newAudio/public/users/"+user+" && cd ../AudioRecorder/newAudio/public/users/"+user+" && mv *distinctpersonalaudiofile* "+name+".wav", function(err,stdout,stderr) {
+			.exec("cd ../downloads && mv *distinctpersonalaudiofile* ../Soundstrain/public/users/"+user+" && cd ../Soundstrain/public/users/"+user+"&& mv *distinctpersonalaudiofile* "+name+".wav", function(err,stdout,stderr) {
 				if(err) {
 					console.log(stdout)
 				console.log('failed ' + err.code)	
@@ -279,4 +280,3 @@ app.post('/api/sharedtracks',function(req,res) {
 	app.listen('3000',function() {
 		console.log('word')
 })
-

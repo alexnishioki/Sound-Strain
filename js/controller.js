@@ -75,11 +75,45 @@ app.factory('loggedInUsers',function() {
   return loggedInUsersInstance
 })
 
+// app.factory('getCurrentUserData',["$http",function($http) {
+//   var getCurrentUserData = {}
+//   getCurrentUserData.apiData = function() {
+//     return $http.get('../public/users/'+loggedInUsers.listUser().username)
+//     }
+//     return getCurrentUserData
+//     // console.log(getUserData)
+//   }])
+
 app.controller('UploadCtrl',['$scope', '$http', '$timeout', '$window', 'fileUpload','getUserData','savedFiles','saved_users','loggedInUsers', function($scope,$http,$timeout,$window,fileUpload,getUserData,savedFiles,saved_users,loggedInUsers) {
   $(document).ready(function(){
     $(this).scrollTop(0);
 });
+$('[rel=popover]').popover({placement:'top',background:'red'});
+$scope.check_help = false
+$('[rel=popover]').popover({'trigger': 'manual'});
+$scope.check_tooltip = function() {
+  $scope.check_help = !$scope.check_help
+  if($scope.check_help) {
+$('[rel=popover]').popover('show');
+} else{
+  $('[rel=popover]').popover('destroy');
+}
+}
 
+
+
+
+// $('body').on('click', function (e) {
+//     $('[data-toggle="popover"]').each(function () {
+//         //the 'is' for buttons that trigger popups
+//         //the 'has' for icons within a button that triggers a popup
+//         if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+//             $(this).popover('hide');
+//         }
+//     });
+// });
+
+// $('#help').on('click',function() { $('body').popover('destroy');})
 
     $scope.allTracks = []
     $scope.currentTrack = function() {
@@ -188,12 +222,6 @@ app.controller('UploadCtrl',['$scope', '$http', '$timeout', '$window', 'fileUplo
         }
     }
 
-    $scope.update_changed_shared =function(newValue){
-      if(newValue) {
-        $scope.updateSound()
-      }
-    }
-
     /*.............................new users................................*/
  
     $scope.addUser = function(username,email,password) {
@@ -276,9 +304,7 @@ app.controller('UploadCtrl',['$scope', '$http', '$timeout', '$window', 'fileUplo
            console.log($scope.download_track)
            if(sendUser.name !== undefined) {
            $http.post('/api/recordinglocation',sendUser)
-         } else {
-          return;
-         }
+         } else {return}
                 // $http.post('/api/currenttracks',sendUser)
       }
 
@@ -359,14 +385,13 @@ app.controller('UploadCtrl',['$scope', '$http', '$timeout', '$window', 'fileUplo
   
     $scope.mergeFiles = function(track_one,track_two,track_name) {
       console.log(track_one,track_two,track_name)
-      var mergeTracks = 
-      {track_one:track_one,
-      track_two:track_two,
-      track_name:track_name,
-      created:moment().format("MMM Do YY"),
-      user:loggedInUsers.listUser().username,
-      path:'../public/users/'+loggedInUsers.listUser().username+'/'+track_name
-      }
+      var mergeTracks = {track_one:track_one,
+                         track_two:track_two,
+                         track_name:track_name,
+                         created:moment().format("MMM Do YY"),
+                         user:loggedInUsers.listUser().username,
+                         path:'../public/users/'+loggedInUsers.listUser().username+'/'+track_name
+                       }
       $http.post('/api/merge',mergeTracks).then(function(res) {
         console.log(res.data)
       })
