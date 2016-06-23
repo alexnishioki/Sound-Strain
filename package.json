@@ -1,10 +1,6 @@
 {
-  // "name": "newaudio",
   "name": "soundstrain",
    "version": "1.0.0",
-  "engines": {
-    "node": "4.2.1"
-  },
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -32,15 +28,18 @@
     "rmdir": "file:node_modules/rmdir",
     "uuid": "^2.0.2"
   },
+  "engines": {
+    "node": "4.2.1"
+  },
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alexnishioki/newAudio.git"
+    "url": "git+https://github.com/alexnishioki/Soundstrain.git"
   },
   "bugs": {
-    "url": "https://github.com/alexnishioki/newAudio/issues"
+    "url": "https://github.com/alexnishioki/Soundstrain/issues"
   },
-  "homepage": "https://github.com/alexnishioki/newAudio#readme",
+  "homepage": "https://github.com/alexnishioki/Soundstrain#readme",
   "keywords": [],
   "description": ""
 }
