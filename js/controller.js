@@ -588,6 +588,10 @@ $scope.timerFunction = function () {
       source.start(0);
       console.log(source)
       console.log(analyser)
+<<<<<<< HEAD
+=======
+      console.log()
+>>>>>>> 4438e9b44857cff56236c08783e926ee74cc2e61
       play.setAttribute('disabled', 'disabled');
       playbackControl.removeAttribute('disabled');
       loopstartControl.removeAttribute('disabled');

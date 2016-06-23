@@ -25,22 +25,38 @@
     <button class='btn btn-default stop' id='pause' >PAUSE</button>
     <button class='btn btn-default playSound' id='delete'
      ng-click="deleteTrack(selected.id,selected.name,selected.name);updateSound()">DELETE</button>
+<<<<<<< HEAD
      <h4 id="shared_test">{{shared_tracks}}</h4>
+=======
+>>>>>>> 4438e9b44857cff56236c08783e926ee74cc2e61
       <!-- <ul style='position:absolute;top:540px;left:30px;color:black'><h3 ng-repeat='(key,val) in selected'>{{key}}  -  {{val}}</h3>
       </ul> -->
 </div>
     <div ng-show='show_playback' class='fadeInUp' id='edit-playback'>
+<<<<<<< HEAD
       <h4 class='playback-label' id='playback-label'><span class='playback-label' >playback</span><span class='playback-label'>rate</span></h4>
+=======
+      <h3 class='playback-label' id='playback-label'><span class='playback-label' >playback</span><span class='playback-label'>rate</span></h3>
+>>>>>>> 4438e9b44857cff56236c08783e926ee74cc2e61
     <input class="playback-rate-control" type="range" min="0.25" max="3" step="0.05" value="1">
     <span class="playback-rate-value">1.0</span>
     </div>
     <div id='edit-loop' ng-show='show_loop' class='fadeInUp'>
+<<<<<<< HEAD
       <h4 class='loop-label' >loop</h4>
       <h5 class='loop-label' id='playback-loop' >begin loop</h5>
     <input class="loopstart-control" type="range" min="0" max="20" step="1" value="0">
     <span class="loopstart-value">0</span>
 
     <h5 class='loop-label'id='playback-loop' >end loop</h5>
+=======
+      <h2 class='loop-label' >loop</h2>
+      <h3 class='loop-label' id='playback-loop' >begin loop</h3>
+    <input class="loopstart-control" type="range" min="0" max="20" step="1" value="0">
+    <span class="loopstart-value">0</span>
+
+    <h3 class='loop-label'id='playback-loop' >end loop</h3>
+>>>>>>> 4438e9b44857cff56236c08783e926ee74cc2e61
     <input class="loopend-control" type="range" min="0" max="20" step="1" value="0">
     <span class="loopend-value">0</span>  
     <!-- <label>volume</label>
@@ -67,9 +83,12 @@
 </table>
 <button class='btn' ng-click='submit_shares(shared_user_target);updateSound();shared_user_target=null;updateSound()' >share tracks</button>
 <button class='btn' ng-click='reset_shares()' >reset tracklist</button>
+<<<<<<< HEAD
 <ul ng-repeat='tracks in shared_tracks'>
 <li>{{tracks.name}}</li>
 </ul>
+=======
+>>>>>>> 4438e9b44857cff56236c08783e926ee74cc2e61
 
 <!-- <ul id='shared_list' ng-repeat='item in shared_tracks'><li>{{item}}</li></ul>
  --></div>
@@ -87,18 +106,31 @@
     <button class='btn btn-default stopTwo' id='pauseTwo'>PAUSE-#2</button>
 </div>
     <div id='edit-playback-two' class='fadeInUp' ng-show='show_playback_two'>
+<<<<<<< HEAD
       <h4  class='playback-label' id='playback-label'><span class='playback-label'>playback</span><span class='playback-label'>rate-2</span></h4>
+=======
+      <h3  class='playback-label' id='playback-label'><span class='playback-label'>playback</span><span class='playback-label'>rate-2</span></h3>
+>>>>>>> 4438e9b44857cff56236c08783e926ee74cc2e61
     <input class="playback-rate-control-two" type="range" min="0.25" max="3" step="0.05" value="1">
 
     <span class="playback-rate-value-two">1.0</span>
     </div>
     <div class='fadeInUp' id='edit-loop-two' ng-show='show_loop_two'>
+<<<<<<< HEAD
       <h4 class='loop-label'>loop</h4>
       <h5 class='loop-label-two' id='playback-loop-two'>begin loop</h5>
     <input class="loopstart-control-two" type="range" min="0" max="20" step="1" value="0">
     <span class="loopstart-value-two">0</span>
 
     <h5  class='loop-label-two'id='playback-loop-two'>end loop</h5>
+=======
+      <h2 class='loop-label'>loop</h2>
+      <h3 class='loop-label-two' id='playback-loop-two'>begin loop</h3>
+    <input class="loopstart-control-two" type="range" min="0" max="20" step="1" value="0">
+    <span class="loopstart-value-two">0</span>
+
+    <h3  class='loop-label-two'id='playback-loop-two'>end loop</h3>
+>>>>>>> 4438e9b44857cff56236c08783e926ee74cc2e61
     <input class="loopend-control-two" type="range" min="0" max="20" step="1" value="0">
     <span class="loopend-value-two">0</span>  
     </div>
