@@ -11,7 +11,6 @@
   "dependencies": {
     "angular-tooltips": "^1.0.8",
     "bcrypt": "^0.8.6",
-    "bluebird": "file:node_modules/bluebird",
     "body-parser": "file:node_modules/body-parser",
     "express": "file:node_modules/express",
     "fs": "0.0.2",
