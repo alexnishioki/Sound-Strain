@@ -10,14 +10,11 @@
   "license": "ISC",
   "dependencies": {
     "angular-tooltips": "^1.0.8",
-<<<<<<< HEAD
     "bcrypt": "^0.8.6",
     "bluebird": "file:node_modules/bluebird",
     "body-parser": "file:node_modules/body-parser",
     "express": "file:node_modules/express",
     "fs": "0.0.2",
-=======
->>>>>>> 4438e9b44857cff56236c08783e926ee74cc2e61
     "glob": "^7.0.3",
     "jquery-file-upload-middleware": "file:node_modules/jquery-file-upload-middleware",
     "knex": "file:node_modules/knex",
