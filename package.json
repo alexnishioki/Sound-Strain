@@ -29,7 +29,8 @@
     "uuid": "^2.0.2"
   },
   "engines": {
-    "node": "4.2.1"
+    "node": "4.2.1",
+    "npm":"3.8.8"
   },
   "devDependencies": {},
   "repository": {
