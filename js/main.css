@@ -1,7 +1,7 @@
 
 html { 
 	/*overflow: hidden;*/
-	background: white;
+	background:url('4track_sketch.jpg');
 
 }
 
@@ -11,9 +11,16 @@ html {
 nav{
 	/*background: linear-gradient(90deg, #000000 74%,white 100%);*/
 	text-shadow:2px 2px 2px #888888;
-    box-shadow: 3px 3px 5px 12px white ,inset 0px -10px 9px 8px white ;
-    border:none;
+	background:#9BD7D5;
+/*    box-shadow: 3px 3px 5px 12px #FF7260 ,inset 0px -10px 9px 8px #FF7260 ;
+*/    border:none;
     height:80px;
+    background:url('yam_sketch.jpg')repeat fixed;
+    	-webkit-background-size: 100px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 100px;
+    filter:;
 
 }
 
@@ -23,22 +30,21 @@ nav{
 #analyser{
 	position:fixed;
 	box-shadow: 2px 2px 5px #777777;
-	height:110px;
-	width:400px;
-	top:102px;
-	left:57px;
+	height:90px;
+	width:360px;
+	top:133px;
+	left:79px;
 	z-index:9999;
 	
 }
 
 #wavedisplay{
 	position:fixed;
-		box-shadow: 2px 2px 5px #777777;
-
-	top:102px;
-	width:400px;
-	height:110px;
-	left:460px;
+	box-shadow: 2px 2px 5px #777777;
+	top:133px;
+	width:360px;
+	height:90px;
+	left:445px;
 	
 }
 
@@ -46,10 +52,10 @@ nav{
 	position:fixed;
 	z-index:999999;
 		box-shadow: 2px 2px 5px #777777;
-	top:215px;
-	left:57px;
-	width:400px;
-	height:110px;
+	top:230px;
+	left:79px;
+	width:360px;
+	height:90px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
@@ -61,10 +67,10 @@ nav{
 	position:fixed;
 	z-index:999999;
 		box-shadow: 2px 2px 5px #777777;
-	top:215px;
-	left:460px;
-	width:400px;
-	height:110px;
+	top:230px;
+	left:445px;
+	width:360px;
+	height:90px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
@@ -76,7 +82,11 @@ body {
 	font-family: 'Raleway', sans-serif;
 	font-size:14px;
 /*background: linear-gradient(45deg, #ffffff 0%,#f6f6f6 47%,#ededed 100%);*/
-	background: -webkit-linear-gradient(top, rgba(254,254,254,1) 0%, rgba(219,219,219,1) 31%, rgba(212,212,212,1) 58%, rgba(209,209,209,1) 72%, rgba(226,226,226,1) 100%);
+	background:url('4track_sketch.jpg') no-repeat fixed;
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 	top:0px;
 /*	display: flex;*/
 /*	flex-direction: column;*/
@@ -93,22 +103,52 @@ body {
 }
 
 canvas { 
-	display: inline-block; 
-	background: linear-gradient(45deg, #000000 63%,#45484d 91%,#45484d 91%,#45484d 92%,#45484d 96%,#45484d 96%,#45484d 98%,#45484d 98%,#45484d 99%,#45484d 99%,#45484d 100%,#45484d 100%,#45484d 100%,#45484d 100%,#45484d 100%,#45484d 101%,#45484d 101%,#45484d 103%);
+	display: inline-block;
+	background:url('yam_sketch.jpg')repeat fixed;
+    	-webkit-background-size: 3px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 3px;
+	width:180px;
+	/*-webkit-filter:invert(90%);*/
 	width: 95%;
-	height: 45%;
+	height: 35%;
 	/*border:1px solid #45484d;*/
 /*	box-shadow:2px 2px 45px 10px #45484d, inset 0px 0px 50px 10px #000000;
 */	border-radius:10px;
 z-index:400;
 	transition:all 4.35s cubic-bezier(0, 1.4, 1, 1);
+}
 
+.other{
+	display: inline-block;
+	background:url('yam_sketch.jpg')repeat fixed;
+    	-webkit-background-size: 3px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 3px;
+	width:180px;
+	-webkit-filter:invert(90%);
+	/*-webkit-filter:invert(90%);*/
+	width: 95%;
+	height: 35%;
+	/*border:1px solid #45484d;*/
+/*	box-shadow:2px 2px 45px 10px #45484d, inset 0px 0px 50px 10px #000000;
+*/	border-radius:10px;
+z-index:400;
+	transition:all 4.35s cubic-bezier(0, 1.4, 1, 1);
 }
 
 canvas:hover{
 	transform: skewX(1deg) scale(1.02);box-shadow:0px 0px 2px 2px #45484d, inset 0px 0px 50px 30px #000000;border:1px solid black;	background: linear-gradient(45deg, #000000 63%,#45484d 91%,#45484d 91%,#45484d 92%,#45484d 96%,#45484d 96%,#45484d 98%,#45484d 98%,#45484d 99%,#45484d 99%,#45484d 100%,#45484d 100%,#45484d 100%,#45484d 100%,#45484d 100%,#45484d 101%,#45484d 101%,#45484d 103%);
 	z-index:1200;
 	 transform-origin   : bottom;
+	 background:url('yam_sketch.jpg')repeat fixed;
+    	-webkit-background-size: 3px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 3px;
+    -webkit-filter:invert(90%);
 }
 
 						/* why two? */
@@ -148,16 +188,20 @@ canvas:hover{
 }
 
 #second-upload{
-	background:white;
+	background:url('yam_sketch.jpg')repeat fixed;
+    	-webkit-background-size: 3px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 3px;
 	border:none;
-	color:black;
+	color:#202020;
 	text-align:center;
-	padding-top:6px;
 	transition: all .35s cubic-bezier(0, 1.4, 1, 1);
-	font-size:14px;
+	font-size:16px;
 	text-shadow:2px 2px 2px #888888;
     box-shadow: 3px 3px 5px #888888;
 	position:fixed;
+	text-shadow:none;
 	top:470px;
 	/*right:1016px;*/
 	left:195px;
@@ -174,8 +218,13 @@ canvas:hover{
 
 #second-upload:hover{ box-shadow: 4px 4px 5px #888888;
 	transform:scaleY(1.1) scaleX(1.05) translate3d(1px, -5%, .5em);
-background: -webkit-linear-gradient(top, rgba(228,228,228,1) 19%,rgba(196,196,196,1) 77%);
 color:#0099CC;
+background:url('yam_sketch.jpg')repeat fixed;
+    	-webkit-background-size: 35px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -webkit-filter:invert(20%);;
+    filter:invert(20%);
 }
 #second-upload:active{
 	  animation:x .15s 2 alternate ease-out;
@@ -197,9 +246,8 @@ select option:first-child{
 /*____SELECT-TRACK__*/
 
 select{
-	background:linear-gradient(45deg, #f6f8f9 0%,#e5ebee 27%,#d7dee3 61%,#f5f7f9 100%);
 	/*background-color:linear-gradient(45deg, #f6f8f9 0%,#e5ebee 27%,#d7dee3 61%,#f5f7f9 100%);*/
-	background:white;
+	background:#129793;
 	text-shadow:2px 2px 2px #888888;
     box-shadow: 3px 3px 5px #888888;
 	font-size:14px;
@@ -207,7 +255,7 @@ select{
 	top:470px;
 	height:40px;
 	width:140px;
-	color:black;
+	color:#E6E6BA;
 	position:fixed;
 	bottom:40px;
 	left:340px;
@@ -237,21 +285,32 @@ select:active{
 
 .btn{
 /*	background:linear-gradient(45deg, #f6f8f9 0%,#e5ebee 27%,#d7dee3 61%,#f5f7f9 100%); */
-	background:white;
+	background:url('yam_sketch.jpg')repeat fixed;
+	font-family: 'Lobster', cursive;
+    	-webkit-background-size: 3px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 3px;
+	width:180px;
 	border:none;
-	color:black;
+	color:#44B2AF;
     position: relative;
-    font-size:14px;
+    font-size:16px;
     height:38px;
     top: 55px;
-    text-shadow:1px 1px 1px #888888;
-    box-shadow: 2px 2px 5px #888888;
+/*    text-shadow:1px 1px 1px #888888;
+*/    box-shadow: 2px 2px 5px #888888;
      -webkit-transition:all .25s cubic-bezier(0, 1.4, 1, 1);
 }
 
 .btn:hover{ box-shadow: 4px 4px 5px #888888;
 	transform:scaleY(1.1) scaleX(1.05) translate3d(1px, -5%, .5em);
-background: -webkit-linear-gradient(top, rgba(228,228,228,1) 19%,rgba(196,196,196,1) 77%);
+background:url('yam_sketch.jpg')repeat fixed;
+    	-webkit-background-size: 35px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -webkit-filter:invert(20%);;
+    filter:invert(20%);
 color:#0099CC; 
    /*-webkit-background-clip: text;
    -webkit-text-fill-color: transparent;*/}
@@ -276,7 +335,7 @@ color:#0099CC;
 
 #record { 
 	height: 6vh;
-	color:black;
+	color:#202020;
 }
 
 #record:hover{
@@ -285,21 +344,18 @@ color:#0099CC;
 
 #record.recording {
 	/*fix */
-	background: background: linear-gradient(to bottom, rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%);;
-	background: -webkit-radial-gradient(center, ellipse cover, #ff0000 0%,lightgrey 75%,lightgrey 100%,#7db9e8 100%); 
-	background: -moz-radial-gradient(center, ellipse cover, #ff0000 0%,lightgrey 75%,lightgrey 100%,#7db9e8 100%); 
-	background: radial-gradient(center, ellipse cover, #ff0000 0%,lightgrey 75%,lightgrey 100%,#7db9e8 100%); 
+	background:#FF7260;
 }
 
 /*____UPLOAD________*/
 
 .btn-danger{
 	position:fixed;
-	color:black;
+	color:#202020;
 	top:420px;
-	left:200px;
+	left:195px;
 	height:38px;
-	width:125px;
+	width:130px;
 }
 
 .btn-danger:hover{
@@ -314,7 +370,7 @@ color:#0099CC;
 
 #load{
 	position:fixed;
-	color:#404040;
+	color:#202020;
 	top:370px;
 	left:340px;
 	width:140px;
@@ -329,7 +385,7 @@ color:#0099CC;
 
 #play{
 	position:fixed;
-	color:#0099CC;
+	color:#202020;
 	left:50px;
 	top:452px;
 	height:39px;
@@ -344,7 +400,7 @@ color:#0099CC;
 
 #pause{
 	position:fixed;
-	color:black;
+	color:#202020;
 	top:420px;
 	left:340px;
 	width:140px;
@@ -367,7 +423,7 @@ color:#780000;
 
 #delete{
 	position:fixed;
-	color:black;
+	color:#202020;
 	top:470px;
 	/*110*/
 	left:80px; 
@@ -383,10 +439,10 @@ color:#780000;
 
 #save, #save .btn {
  	position:fixed;
-	color:black;
+	color:#202020;
 	left:65px;
 	top:420px;
-	width:120px;
+	width:115px;
 }
 
 #download_input{
@@ -398,13 +454,27 @@ color:#780000;
 	width:175px;
 	border-radius:8px;
 	border:none;
-	background:white;
+	background:url('yam_sketch.jpg')repeat fixed;
+    	-webkit-background-size: 3px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 3px;
+	background-size: 3px;
+	border:none;
+	color:#202020;
 	transition:all 4.35s cubic-bezier(0, 1.4, 1, 1);
 	box-shadow: 1px 2px 5px #888888;
 	font-style:bold;
 	font-size:20px;
-	opacity:.4;
-	color:black;
+	opacity:.9;
+	color:#3D3D3D;
+
+}
+
+input[type="text"]::-webkit-input-placeholder {
+  color: #3D3D3D;
+  font-family: 'Lobster', cursive;
+  padding-left:15px;
 }
 
 #download_input:focus{
@@ -423,7 +493,9 @@ color:#780000;
 }
 
 #save {
-	opacity: 0.5;
+	opacity: 0.8;
+	z-index:9999;
+	left:70px;
 }
 
 #save[download] {
@@ -438,7 +510,7 @@ color:#780000;
 	top:370px;
 	width:120px;
 	height:40px;
-	color:black;
+	color:#202020;
 }
 
 #loop_btn:hover{
@@ -449,7 +521,7 @@ color:#780000;
 
 #playTwo{
 	position:fixed;
-	color:black;
+	color:#202020;
 	left:490px;
 	top:370px;
 	height:40px;
@@ -464,7 +536,7 @@ color:#780000;
 
 #pauseTwo{
 	position:fixed;
-	color:black;
+	color:#202020;
 	top:420px;
 	left:490px;
 	width:115px;
@@ -478,18 +550,34 @@ color:#780000;
 /*___SELECT-TRACK-#2___*/
 
 #select-two-id{
-	position:fixed;
-	color:black;
+	background:url('yam_sketch.jpg')repeat fixed;
+    	-webkit-background-size: 3px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 3px;
+	border:none;
+	color:#202020;
+	border:none;
 	left:62 0px;
 	left:490px;
 	padding:0 0 0 25px;
 	width:115px;
+	-webkit-filter:none;
+	font-family: 'Lobster', cursive;
+	text-shadow:none;
+	font-size:16px;
 /*vertical-align: middle;*/
 
 }
 
 #select-two-id:hover{
 	color:#0099CC;
+	background:url('yam_sketch.jpg')repeat fixed;
+    	-webkit-background-size: 35px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -webkit-filter:invert(20%);;
+    filter:invert(20%);
 }
 
 /*____PLAYBACK RATE____*/
@@ -500,7 +588,7 @@ color:#780000;
 	top:420px;
 	width:120px;
 	height:40px;
-	color:black;
+	color:#202020;
 }
 
 #playback:hover{
@@ -519,7 +607,7 @@ color:#780000;
 	top:420px;
 	width:125px;
 	height:40px;
-	color:black;
+	color:#202020;
 
 }
 
@@ -535,7 +623,7 @@ color:#780000;
 	top:370px;
 	width:125px;
 	height:40px;  
-	color:black;
+	color:#202020;
 }
 
 #loop_btn_two:hover{
@@ -549,7 +637,7 @@ color:#780000;
 	top:502px;
 	width:105px;
 	height:38px;
-	color:black;
+	color:#202020;
 }
 
 /*____SYNC____*/
@@ -560,19 +648,33 @@ color:#780000;
 #signin_user{
 	z-index:9999;
 	position:fixed;
-	top:10px;
+	top:25px;
 	right:120px;
-	color:white;
+	color:#C41A1E;
 	width:80px;
 	border:.5px solid #D3D3D3;
 	box-shadow:none;
-	background-image:-webkit-linear-gradient(left bottom, #45484d 50%, #000000 100%);
+	 background:url('yam_sketch.jpg')repeat fixed;
+    	-webkit-background-size: 20px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 20px;
+    -webkit-filter:invert(90%);
+    filter:invert(90%);
 }
 
 #signin_user:hover.btn:hover{ box-shadow: 4px 4px 5px #888888;
 	transform:scaleY(1.1) scaleX(1.05) translate3d(1px, -5%, .5em);
-background: -webkit-linear-gradient(top, rgba(228,228,228,1) 19%,rgba(196,196,196,1) 77%);
-color:black;
+	background:url('yam_sketch.jpg')repeat fixed;
+    	-webkit-background-size: 20px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 20px;
+	box-shadow:none;
+	z-index:9999;
+	filter:invert(90%);
+	-webkit-filter:invert(90%);
+color:#E5E57F;
    /*-webkit-background-clip: text;
    -webkit-text-fill-color: transparent;*/}
 
@@ -586,7 +688,7 @@ color:black;
 #sign_up_btn {
 	color:white;
 	box-shadow:none;
-	background-image:-webkit-linear-gradient(left bottom, #45484d 50%, #000000 100%);
+	background: #FF7260;
 }
 
 /*____USER_ SUBMIT____*/
@@ -598,7 +700,7 @@ color:black;
 	margin-top:-30px;
 	z-index:8888;
 	box-shadow:none;
-	background-image:-webkit-linear-gradient(left bottom, #45484d 50%, #000000 100%);
+	background:#FF7260;
 
 }
 
@@ -615,7 +717,7 @@ color:black;
 	top:470px;
 	width:120px;
 	height:40px;
-	color:black;
+	color:#202020;
 }
 
 #metronome:hover{
@@ -630,15 +732,18 @@ color:black;
 	height:38px;
 	border-radius:8px;
 	border:none;
-	background:white;
+	background:url('yam_sketch.jpg')repeat fixed;
+    	-webkit-background-size: 3px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 3px;
+	color:#202020;
+	border:none;
 	transition:all 4.35s cubic-bezier(0, 1.4, 1, 1);
 	box-shadow: 1px 2px 5px #888888;
 	font-style:bold;
 	font-size:20px;
-	opacity:.4;
-	color:black;
-}
-#merge_input[placeholder]{
+	opacity:.9;
 	color:black;
 }
 
@@ -664,22 +769,32 @@ color:black;
 	position:fixed;
 	opacity:.9;
 	right:36px;
-	top:10px;
+	top:25px;
 	width:80px;
-	color:white;
+	color:#C41A1E;
 	border:.5px solid #D3D3D3;
-	background: linear-gradient(90deg, #222222 63%,#45484d 91%,#45484d 91%,#45484d 92%,#45484d 96%,#45484d 96%,#45484d 98%,#45484d 98%,#45484d 99%,#45484d 99%,#45484d 100%,#45484d 100%,#45484d 100%,#45484d 100%,#45484d 100%,#45484d 101%,#45484d 101%,#222222 103%);
+	 background:url('yam_sketch.jpg')repeat fixed;
+    	-webkit-background-size: 20px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 20px;
 	box-shadow:none;
 	z-index:9999;
-/*    box-shadow: 3px 3px 20px 3px rgb(206,220,231),inset 0px -10px 9px 8px rgb(206,220,231);
-*/}
+	filter:invert(90%);
+	-webkit-filter:invert(90%);
+}
 
-/*.show_user:hover{ transform:scaleY(0.95) scaleX(0.9) translate3d(1px, -5%, .5em);text-shadow: -10px -10px 14px rgba(38, 79, 36, 1); border-radius:7px;font-size:28px;line-height: 70%;box-shadow:7px 7px 15px 1px #888888,inset 0px 0px 10px 0px rgba(50, 50, 50, 0.79);	background:-webkit-linear-gradient(45deg, #f6f8f9 0%,#e5ebee 27%,#d7dee3 61%,#f5f7f9 100%);
-  color:white;
-	background: linear-gradient(90deg, #222222 63%,#45484d 91%,#45484d 91%,#45484d 92%,#45484d 96%,#45484d 96%,#45484d 98%,#45484d 98%,#45484d 99%,#45484d 99%,#45484d 100%,#45484d 100%,#45484d 100%,#45484d 100%,#45484d 100%,#45484d 101%,#45484d 101%,#222222 103%);
-   height:40px;
-  }*/
-
+.show_user:hover{
+	background:url('yam_sketch.jpg')repeat fixed;
+    	-webkit-background-size: 20px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 20px;
+	box-shadow:none;
+	z-index:9999;
+	filter:invert(90%);
+	-webkit-filter:invert(90%);
+}
 /*____btn_logout____*/
 
 
@@ -688,9 +803,17 @@ color:black;
 	position:fixed;
 	top:10px;
 	right:120px;
+	width:70px;
 	color:white;
 	box-shadow:none;
-	background-image:-webkit-linear-gradient(left bottom, #45484d 50%, #000000 100%);
+	background:url('yam_sketch.jpg')repeat fixed;
+    	-webkit-background-size: 20px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 20px;
+    filter:invert(90%);
+    color:white;
+    -webkit-filter:invert(90%);
 }
 
 #deleteBtn{
@@ -707,12 +830,26 @@ color:black;
 	position:fixed;
 	top:420px;
 	width:50px;
-	color:white;
-	opacity:.7;
+	opacity:1;
 	left:10px;
 	height:40px;
-	background-image:-webkit-linear-gradient(left bottom, #45484d 50%, #000000 100%);
+	background:url('yam_sketch.jpg')repeat fixed;
+    	-webkit-background-size: 3px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 3px;
+	border:none;
+	color:#202020;
+	border:none;
+}
 
+#v_button:hover{
+	background:url('yam_sketch.jpg')repeat fixed;
+    	-webkit-background-size: 35px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -webkit-filter:invert(20%);;
+    filter:invert(20%);
 }
 
 /*...........................shared_test..........................*/
@@ -782,8 +919,13 @@ color:black;
 	height:135px;
 	border-radius:12px;
 	box-shadow: 2px 2px 5px #888888;
-    background:white;
+    background:url('yam_sketch.jpg')repeat fixed;
+    	-webkit-background-size: 5px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 5px;
 	width:180px;
+	-webkit-filter:invert(90%);
 
 }
 
@@ -801,7 +943,13 @@ color:black;
 	margin-left:20px;
 /*	padding-bottom:40px;*/
 	box-shadow: 2px 2px 5px #888888;
-    background:white;
+        background:url('yam_sketch.jpg')repeat fixed;
+    	-webkit-background-size: 5px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 5px;
+	width:180px;
+	-webkit-filter:invert(90%);
 	top:540px;
 	height:135px;
 	border-radius:12px;
@@ -914,7 +1062,13 @@ position:fixed;
 	top:540px;
 	height:135px;
 	box-shadow: 2px 2px 5px #888888;
-    background:white;
+        background:url('yam_sketch.jpg')repeat fixed;
+    	-webkit-background-size: 5px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 5px;
+	width:180px;
+	-webkit-filter:invert(90%);
 	border-radius:12px;
 	width:180px;
 }
@@ -927,7 +1081,13 @@ position:fixed;
 	top:540px;
 	height:135px;
 	box-shadow: 2px 2px 5px #888888;
-    background:white;
+        background:url('yam_sketch.jpg')repeat fixed;
+    	-webkit-background-size: 5px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 5px;
+	width:180px;
+	-webkit-filter:invert(90%);
 	border-radius:10px;
 	width:220px;
 	
@@ -1048,7 +1208,7 @@ position:fixed;
 .rss.opacity {
 	position:fixed;
 	left:10px;
-	-webkit-filter:blur(0px) invert(85%);
+	-webkit-filter:blur(0px);
 	transform: rotate(180deg);
 	opacity:.2;
 
@@ -1089,8 +1249,14 @@ label{
 	height:450px;
 	z-index:9999;
 	color:white;
-	background-image:-webkit-linear-gradient(left bottom, #45484d 50%, #000000 100%);
 	border-radius:12px;
+	background:url('yam_sketch.jpg')repeat fixed;
+    	-webkit-background-size: 35px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 35px;
+    filter:invert(20%);
+	-webkit-filter:invert(100%);
 	transition:all 4.35s cubic-bezier(0, 1.4, 1, 1);
 
 }
@@ -1127,6 +1293,42 @@ position:relative;
 	transition:all 4.35s cubic-bezier(0, 1.4, 1, 1);
 }
 
+#internal{
+	position:fixed;
+	z-index:99999;
+	margin-top:205px;
+	margin-left:-24px;
+	height:27px;
+	width:60px;
+	padding-left:0;
+	color:black;
+	margin-bottom:0px;
+	padding-top:4px;
+	font-size:14px;
+	padding-left:10px;
+}
+
+#external{
+	position:fixed;
+	z-index:99999;
+	height:27px;
+	width:60px;
+	padding-top:4px;
+	margin-top:238px;
+	margin-left:-25px;
+	color:black;
+	font-size:14px;
+}
+
+#rec{
+	color:#C41A1E;
+
+}
+
+#rec_{
+	color:#C41A1E;
+}
+
 /*..........................share-table.............................*/
 
 
@@ -1136,10 +1338,11 @@ position:relative;
 	padding:10px;
 	top:80px;
 	right:80px;
-background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 63%,rgba(237,237,237,1) 63%,rgba(237,237,237,1) 84%);	box-shadow:inset 3px 3px 8px #888888;
+	background:url('yam_skech.jpg');
+	box-shadow:inset 3px 3px 8px #888888;
 	overflow:scroll;
-	background-image:url('https://s-media-cache-ak0.pinimg.com/736x/d6/0b/14/d60b148da616b756f60a84d3465b2e0a.jpg')	padding-bottom:3000px;
-
+/*	background-image:url('https://s-media-cache-ak0.pinimg.com/736x/d6/0b/14/d60b148da616b756f60a84d3465b2e0a.jpg')	padding-bottom:3000px;
+*/
 	padding-bottom:3000px;
 	width:25%;
 }
@@ -1148,13 +1351,23 @@ border-radius:8px;
 position:relative;
 padding-left:20px;
 	border:none;
-	background:white;
+	background:url('yam_sketch.jpg')repeat fixed;
+    	-webkit-background-size: 3px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 3px;
+	border:none;
 	width:260px;
 	height:40px;
+	color:#202020;
 	font-size:18px;
 	transition:all 2.35s cubic-bezier(0, 1.4, 1, 1);
-/*	box-shadow: 1px 2px 5px #888888;
-*/	font-style:bold;
+	box-shadow: 1px 2px 5px #888888;
+	font-style:bold;
+}
+
+input[type="text"]#shared_input::-webkit-input-placeholder {
+  color: #202020;
 }
 
 #shared_input:focus{
@@ -1168,7 +1381,13 @@ padding-left:20px;
 	transform: skewX(1deg) scale(1.02);box-shadow:0px 0px 2px 2px #45484d, inset 0px 0px 0px 30px #000000; 
 	transform-origin:bottom;
 	border:none;
-	background:linear-gradient(45deg, white 0%,#f2f2f2 27%,white 61%,#f5f7f9 100%);
+	background:url('yam_sketch.jpg')repeat fixed;
+    	-webkit-background-size: 35px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 35px;
+    filter:invert(20%);
+	-webkit-filter:invert(20%);
 	box-shadow: inset 3px 3px 5px #888888;
 	opacity:1;
 }
@@ -1176,9 +1395,16 @@ padding-left:20px;
 .td_tracks{
 
 	text-shadow:2px 2px 5px #888888;
-	padding-left:5px;
-/*    box-shadow: 1px 1px 2px #888888;
-*/    background:white;
+	right:50px;
+	background:url('yam_sketch.jpg');
+	-webkit-background-size: 20px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 20px;
+    filter:invert(90%);
+    -webkit-filter:invert(90%);
+    box-shadow: 1px 1px 2px #888888;
+    border-radius:3px;
     border:none;
     transition:all .25s cubic-bezier(0, 1.4, 1, 1);
 
@@ -1190,9 +1416,12 @@ padding-left:20px;
 /*	background:linear-gradient(45deg, white 0%,#f2f2f2 27%,white 61%,#f5f7f9 100%);
 */	box-shadow: 6px 6px 5px #888888;
 	opacity:1;
-	color:white;	
-	background: linear-gradient(45deg, #000000 63%,#45484d 91%,#45484d 91%,#45484d 92%,#45484d 96%,#45484d 96%,#45484d 98%,#45484d 98%,#45484d 99%,#45484d 99%,#45484d 100%,#45484d 100%,#45484d 100%,#45484d 100%,#45484d 100%,#45484d 101%,#45484d 101%,#45484d 103%);
-}
+	background:url('yam_sketch.jpg');
+	-webkit-background-size: 10px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 10px;	
+
 }
 
 
@@ -1251,7 +1480,6 @@ th{
     transform: translate3d(0, -100%, 0);
   }
 
-<<<<<<< HEAD
   to {
     opacity: 1;
     -webkit-transform: none;
@@ -1388,9 +1616,15 @@ position:fixed;
 	top:320px;
 	height:345px;
 	box-shadow: 2px 2px 5px #888888;
-    background:white;
+        background:url('yam_sketch.jpg')repeat fixed;
+    	-webkit-background-size: 3px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 4px;
+	width:180px;
+	-webkit-filter:invert(90%);
 	border-radius:10px;
-	opacity:.8;
+	opacity:.9;
 	width:220px;
 }
 
@@ -1401,11 +1635,17 @@ position:fixed;
 	margin-left:20px;
 	margin-top:10px;
 	text-align:center;
+	background:url('yam_sketch.jpg')repeat fixed;
+    	-webkit-background-size: 3px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 4px;
+    filter:invert(90%);
+    -webkit-filter:invert(90%);
 	top:320px;
 	height:345px;
 	box-shadow: 2px 2px 5px #888888;
-    background:white;
-    opacity:.8;
+    opacity:.9;
 	border-radius:10px;
 	width:220px;
 }
@@ -1413,19 +1653,36 @@ position:fixed;
 #help{
 	z-index:9999;
 	position:fixed;
-	top:10px;
+	top:25px;
 	width:80px;
 	right:204px;
-	color:white;
+	color:#C41A1E;
 	border:.1px solid #D3D3D3;
 	box-shadow:none;
-	background-image:-webkit-linear-gradient(left bottom, #45484d 50%, #000000 100%);
+	background:url('yam_sketch.jpg');
+	-webkit-background-size: 20px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 20px;
+    filter:invert(90%);
+    -webkit-filter:invert(90%);
+
 }
 
 #help:hover{ box-shadow: 4px 4px 5px #888888;
 	transform:scaleY(1.1) scaleX(1.05) translate3d(1px, -5%, .5em);
 background: -webkit-linear-gradient(top, rgba(228,228,228,1) 19%,rgba(196,196,196,1) 77%); 
 color:black;
+background:url('yam_sketch.jpg')repeat fixed;
+    	-webkit-background-size: 20px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 20px;
+	box-shadow:none;
+	z-index:9999;
+	filter:invert(90%);
+	-webkit-filter:invert(90%);
+color:red;
    /*-webkit-background-clip: text;
    -webkit-text-fill-color: transparent;*/}
 
@@ -1472,6 +1729,9 @@ rzslider span.rz-pointer{
 	position:fixed;
 	top:470px;
 	left:10px;
+	height:35px;
+	width:60px;
+	color:#202020;
 }
 
 #shared_list{
@@ -1485,19 +1745,140 @@ rzslider span.rz-pointer{
 }
 
 #site_label{
+font-family: 'Lobster', cursive;
 position:fixed;
 top:0px;
+color:#000080;
 
 }
 
 
 
 
+#audio_quality{
+	position:fixed;
+	top:330px;
+	left:10px;
+	z-index:9999;
+	width:120px;
+	height:30px;
+	background:url('yam_sketch.jpg');
+	-webkit-background-size: 3px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 3px;
+    filter:none;
+    -webkit-filter:none;
+    color:#C41A1E;
+    
 
+}
 
+#audio_quality:hover{
+background:url('yam_sketch.jpg')repeat fixed;
+    	-webkit-background-size: 35px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -webkit-filter:invert(20%);;
+    filter:invert(20%);
 
+	}
+	
+.button-default {
+  font-family: sans-serif;
+  color: white;
+  text-transform: uppercase;
+  font-size: 90%;
+  font-weight: 700;
+  padding: 5px 10px;
+  background: teal;
+  display: inline-block;
+  text-align: center;
+  margin: 10px;
+}
 
+.button-slanted {
+  -ms-transform: skewX(-20deg);
+  -webkit-transform: skewX(-20deg);
+  transform: skewX(-20deg);
+}
 
+.button-slanted-content {
+  -ms-transform: skewX(20deg);
+  -webkit-transform: skewX(20deg);
+  transform: skewX(20deg);  
+  display: inline-block;
+}
 
+.button-fixedwidth {
+  width: 100px;
+}
 
+select{
+	background:url('btn.jpg');
+	background-size: 4px;
+	-webkit-filter:invert(90%);
+	border:none;
+	color:#FFF5C3;
+}
 
+#select_one{
+	background:url('yam_sketch.jpg')repeat fixed;
+	font-family: 'Lobster', cursive;
+    	-webkit-background-size: 3px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 3px;
+	border:none;
+	color:#202020;
+	border:none;
+	left:62 0px;
+	left:340px;
+	padding:0 0 0 45px;
+	width:140px;
+	font-size:16px;
+	-webkit-filter:none;
+	text-shadow:none;
+}
+
+#select_one:hover{
+background:url('yam_sketch.jpg')repeat fixed;
+    	-webkit-background-size: 35px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -webkit-filter:invert(20%);;
+    filter:invert(20%);
+}
+
+#share{
+width:100px;
+padding-right:12px;
+font-size:16px;
+color:#202020;
+}
+
+#share_label{
+	font-family: 'Lobster', cursive;
+}
+
+#reset{
+	width:100px;
+	padding-left:8px;
+	font-size:16px;
+	color:#202020;
+}
+
+#word{
+	position:fixed;
+	width:60px;
+	left:11px;
+	top:225px;
+	height:28px;
+	color:#C41A1E;
+	padding-top:3px;
+}
+
+#sample{
+	position:fixed;
+	margin-left:-100px;
+}

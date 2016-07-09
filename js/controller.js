@@ -84,36 +84,18 @@ app.factory('loggedInUsers',function() {
 //     // console.log(getUserData)
 //   }])
 
-app.controller('UploadCtrl',['$scope', '$http', '$timeout', '$window', 'fileUpload','getUserData','savedFiles','saved_users','loggedInUsers', function($scope,$http,$timeout,$window,fileUpload,getUserData,savedFiles,saved_users,loggedInUsers) {
+app.controller('UploadCtrl',
+  ['$scope', '$http', '$timeout', '$window', 'fileUpload','getUserData','savedFiles','saved_users','loggedInUsers',
+  function($scope,$http,$timeout,$window,fileUpload,getUserData,savedFiles,saved_users,loggedInUsers) {
   $(document).ready(function(){
     $(this).scrollTop(0);
-});
-$('[rel=popover]').popover({placement:'top',background:'red'});
-$scope.check_help = false
-$('[rel=popover]').popover({'trigger': 'manual'});
-$scope.check_tooltip = function() {
-  $scope.check_help = !$scope.check_help
-  if($scope.check_help) {
-$('[rel=popover]').popover('show');
-} else{
-  $('[rel=popover]').popover('destroy');
-}
-}
+    $('#word').on('click',function(){
+      $('canvas').toggleClass('other')
+    })
+  });
 
+  // -webkit-filter:invert(90%);
 
-
-
-// $('body').on('click', function (e) {
-//     $('[data-toggle="popover"]').each(function () {
-//         //the 'is' for buttons that trigger popups
-//         //the 'has' for icons within a button that triggers a popup
-//         if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
-//             $(this).popover('hide');
-//         }
-//     });
-// });
-
-// $('#help').on('click',function() { $('body').popover('destroy');})
 
     $scope.allTracks = []
     $scope.currentTrack = function() {
@@ -222,6 +204,24 @@ $('[rel=popover]').popover('show');
         }
     }
 
+    $scope.change_bit = [];
+    $scope.bit_rate = [{name:'.mp3'},{name:'.wav'},{name:'.m4a'}];
+
+    $scope.audio_quality = function(fidelity) {
+      if(fidelity !== undefined){
+        $scope.change_bit.unshift(fidelity)
+        console.log(`CHECKING -- ${$scope.change_bit}`)
+      }
+    }
+
+    $scope.log = function() {
+      console.log($scope.change_bit[0])
+    }
+
+  //   $scope.sizes = [ {code: 1, name: 'n1'}, {code: 2, name: 'n2'}];
+  // $scope.update = function() {
+  //   console.log($scope.item.code, $scope.item.name)
+
     /*.............................new users................................*/
  
     $scope.addUser = function(username,email,password) {
@@ -245,11 +245,8 @@ $('[rel=popover]').popover('show');
               email:$scope.new_user.email,
               password:$scope.new_user.passwords})
             console.log(loggedInUsers.listUser())
-          })
-          // $scope.new_user.username=""
-          // $scope.new_user.email=""
-          // $scope.new_user.password=""
-            return;
+        })
+        return;
         } else if
         (user_data_check.email == $scope.new_user.email && user_data_check.username == $scope.new_user.username && user_data_check.password == $scope.new_user.password) {   
            console.log('username already taken') 
@@ -260,14 +257,9 @@ $('[rel=popover]').popover('show');
                   {username:$scope.new_user.username,
                   email:$scope.new_user.email,
                   password:$scope.new_user.password})
-                console.log(loggedInUsers.listUser())
-                
-              })
-              // $scope.new_user.username=""
-              // $scope.new_user.email=""
-              // $scope.new_user.password=""
+                console.log(loggedInUsers.listUser())             
+          })
         }   
-      
       })
     }
     
@@ -300,13 +292,29 @@ $('[rel=popover]').popover('show');
           {user:loggedInUsers.listUser().username,
            name:$scope.download_track,
            path:'../public/users/'+loggedInUsers.listUser().username+'/'+$scope.download_track,
-           created:moment().format("MMM Do YY")}
+           created:moment().format("MMM Do YY"),
+           bits:$scope.change_bit[0]}
            console.log($scope.download_track)
            if(sendUser.name !== undefined) {
            $http.post('/api/recordinglocation',sendUser)
          } else {return}
                 // $http.post('/api/currenttracks',sendUser)
       }
+
+      /*.............................internal recording................................*/
+
+      $scope.send_internal_track = function() {
+        var post = {name:'carl'}
+        $http.post('/api/recordinglocationinternal',post)
+      }
+
+      $scope.revert_to_ext_out = function() {
+        var post = {name:'paul'}
+        $http.post('/api/recordinglocationexternal', post)
+      }
+
+      /*................................................................................*/
+
 
     $scope.current_user_logout = function() {
       loggedInUsers.addUser({})
@@ -319,25 +327,6 @@ $('[rel=popover]').popover('show');
     // console.log('factory-list-uploads: ' + $scope.listFile())
     }
    $scope.listUsers()
-
-
-    /*.............................not working yet................................*/
-
-    // $scope.deleteUser = function(current_user) {
-    //   $scope.user.current_user_view = current_user
-    //   saved_users.all_users().then(function(res) {
-    //       var all_user_data = res.data
-    //       console.log(res.data)
-    //       for(var user in $scope.user.current_user_view) {
-    //         if(all_user_data[user].username === $scope.user.current_user_view && all_user_data[user].id === all_user_data[user].id) {
-    //           console.log(all_user_data[user].id)
-    //           var user_result = {ID:all_user_data[user].id,name:all_user_data[user].username}
-    //           $http.post('/api/removeuser',user_result)
-    //         }
-    //       }
-    //         $http.post('/api/deleteuser',user_result)
-    //   })
-    // }
 
     /*.............................send file join info................................*/
 
@@ -354,8 +343,8 @@ $('[rel=popover]').popover('show');
           $scope.shared_tracks.splice(i,1)
           $scope.active = !$scope.active
     
+      }
     }
-  }
       console.log($scope.shared_tracks)
       console.log($scope.shared_tracks.length)
     }
@@ -385,13 +374,14 @@ $('[rel=popover]').popover('show');
   
     $scope.mergeFiles = function(track_one,track_two,track_name) {
       console.log(track_one,track_two,track_name)
-      var mergeTracks = {track_one:track_one,
-                         track_two:track_two,
-                         track_name:track_name,
-                         created:moment().format("MMM Do YY"),
-                         user:loggedInUsers.listUser().username,
-                         path:'../public/users/'+loggedInUsers.listUser().username+'/'+track_name
-                       }
+      var mergeTracks = 
+      {track_one:track_one,
+       track_two:track_two,
+       track_name:track_name,
+       created:moment().format("MMM Do YY"),
+       user:loggedInUsers.listUser().username,
+       path:'../public/users/'+loggedInUsers.listUser().username+'/'+track_name
+      }
       $http.post('/api/merge',mergeTracks).then(function(res) {
         console.log(res.data)
       })
@@ -399,88 +389,85 @@ $('[rel=popover]').popover('show');
 
     /*.............................playback controls...........................*/
 
-
-// 1,100,115,40 
-
-      $scope.sliderA = {
-  value: 116,
-  options: {
-    floor: 0,
-    ceil: 200
-  }
-};
-
-$scope.sliderB = {
-  value: 114,
-  options: {
-    floor: 0,
-    ceil: 200
-  }
-};
-
-$scope.sliderC = {
-  value: 2,
-  options: {
-    floor: 1,
-    ceil: 10
-  }
-};
-
-$scope.sliderD = {
-  value: 1,
-  options: {
-    floor: 0,
-    ceil: 7
-  }
-};
-
-$scope.sliderE = {
-  value: 75,
-  options: {
-    floor: 0,
-    ceil: 100
-  }
-};
-
-      $scope.sliderF = {
-  value: 116,
-  options: {
-    floor: 0,
-    ceil: 200
-  }
-};
-
-$scope.sliderG = {
-  value: 114,
-  options: {
-    floor: 0,
-    ceil: 200
-  }
-};
-
-$scope.sliderH = {
-  value: 2,
-  options: {
-    floor: 1,
-    ceil: 10
-  }
-};
-
-$scope.sliderI = {
-  value: 1,
-  options: {
-    floor: 0,
-    ceil: 7
-  }
-};
-
-$scope.sliderJ = {
-  value: 75,
-  options: {
-    floor: 0,
-    ceil: 100
-  }
-};
+          $scope.sliderA = {
+      value: 116,
+      options: {
+        floor: 0,
+        ceil: 200
+      }
+    };
+    
+    $scope.sliderB = {
+      value: 114,
+      options: {
+        floor: 0,
+        ceil: 200
+      }
+    };
+    
+    $scope.sliderC = {
+      value: 2,
+      options: {
+        floor: 1,
+        ceil: 10
+      }
+    };
+    
+    $scope.sliderD = {
+      value: 1,
+      options: {
+        floor: 0,
+        ceil: 7
+      }
+    };
+    
+    $scope.sliderE = {
+      value: 75,
+      options: {
+        floor: 0,
+        ceil: 100
+      }
+    };
+    
+          $scope.sliderF = {
+      value: 116,
+      options: {
+        floor: 0,
+        ceil: 200
+      }
+    };
+    
+    $scope.sliderG = {
+      value: 114,
+      options: {
+        floor: 0,
+        ceil: 200
+      }
+    };
+    
+    $scope.sliderH = {
+      value: 2,
+      options: {
+        floor: 1,
+        ceil: 10
+      }
+    };
+    
+    $scope.sliderI = {
+      value: 1,
+      options: {
+        floor: 0,
+        ceil: 7
+      }
+    };
+    
+    $scope.sliderJ = {
+      value: 75,
+      options: {
+        floor: 0,
+        ceil: 100
+      }
+    };
 
     $scope.audioPath = '../public/users/'+loggedInUsers.listUser().username+'/'
     $scope.audioPathTwo = '../public/users/'+loggedInUsers.listUser()+'/'
@@ -494,6 +481,7 @@ $scope.sliderJ = {
     var stop = document.querySelector('.stop');
     var playbackControl = document.querySelector('.playback-rate-control');
     var playbackValue = document.querySelector('.playback-rate-value');
+    var select = document.querySelector('#select_one');
     playbackControl.setAttribute('disabled', 'disabled');
     var loopstartControl = document.querySelector('.loopstart-control');
     var loopstartValue = document.querySelector('.loopstart-value');
@@ -563,15 +551,15 @@ $scope.sliderJ = {
         hue = parseInt($scope.sliderA.value * ($scope.sliderB.value - (barHeight / 255)), 10);
         ctx.fillStyle = 'hsl(' + hue + ','+$scope.sliderE.value+'%,50%)';
         ctx.fillRect(((barWidth + barSpacing) * i) + (barSpacing / 2), height, barWidth - barSpacing, -barHeight);
-    }
-     
-};
-$scope.startFreq = function () {
-    /* Draw sound wave spectrum every 10 milliseconds. */
-    $scope.timer = setInterval($scope.timerFunction, 10);
-};
+      }   
+  };
 
-$scope.timerFunction = function () {
+  $scope.startFreq = function () {
+      /* Draw sound wave spectrum every 10 milliseconds. */
+      $scope.timer = setInterval($scope.timerFunction, 10);
+  };
+  
+  $scope.timerFunction = function () {
     draw();
   }
   $scope.startFreq()
@@ -590,6 +578,7 @@ $scope.timerFunction = function () {
       console.log(analyser)
       play.setAttribute('disabled', 'disabled');
       playbackControl.removeAttribute('disabled');
+      select.setAttribute('disabled','disabled');
       loopstartControl.removeAttribute('disabled');
       loopendControl.removeAttribute('disabled');
     }
@@ -599,6 +588,7 @@ $scope.timerFunction = function () {
       playbackControl.setAttribute('disabled', 'disabled');
       loopstartControl.setAttribute('disabled', 'disabled');
       loopendControl.setAttribute('disabled', 'disabled');
+      select.removeAttribute('disabled')
     }
     playbackControl.oninput = function() {
       source.playbackRate.value = playbackControl.value;
@@ -631,6 +621,7 @@ $scope.timerFunction = function () {
     var loopendControlTwo = document.querySelector('.loopend-control-two');
     var loopendValueTwo = document.querySelector('.loopend-value-two');
     loopendControlTwo.setAttribute('disabled', 'disabled');
+    var select_two = document.querySelector('#select-two-id');
     var _ctx = document.querySelector('#sourcedisplayTwo')
     var ctx = _ctx.getContext('2d');
 
@@ -660,7 +651,7 @@ $scope.timerFunction = function () {
             loopstartControlTwo.setAttribute('max', Math.floor(songLengthTwo));
             loopendControlTwo.setAttribute('max', Math.floor(songLengthTwo));
 
-              drawTwo = function () {
+    drawTwo = function () {
     var width, height, barWidth, barHeight, barSpacing, frequencyDataTwo, barCount, loopStep, i, hue;
  
     width = _ctx.width;
@@ -681,31 +672,18 @@ $scope.timerFunction = function () {
         ctx.fillRect(((barWidth + barSpacing) * i) + (barSpacing / 2), height, barWidth - barSpacing, -barHeight);
     }
      
-};
+  };
 
-// width = _ctx.width;
-//     height = _ctx.height;
-//     barWidth = $scope.sliderD.value;
-//     barSpacing = $scope.sliderC.value;
-//     ctx.clearRect(0, 0, width, height);
-//     frequencyData = new Uint8Array(analyser.frequencyBinCount);
-//     analyser.getByteFrequencyData(frequencyData);
-//     barCount = Math.round(width / (barWidth + barSpacing));
-//     loopStep = Math.floor(frequencyData.length / barCount);
- 
-//     for (i = 0; i < barCount; i++) {
-//         barHeight = frequencyData[i * loopStep];
-//         hue = parseInt($scope.sliderA.value * ($scope.sliderB.value - (barHeight / 255)), 10);
-//         ctx.fillStyle = 'hsl(' + hue + ','+$scope.sliderE.value+'%,50%)';
-$scope.startFreqTwo = function () {
-    $scope.timerTwo = setInterval($scope.timerFunctionTwo, 10);
-};
-
-$scope.timerFunctionTwo = function () {
+  $scope.startFreqTwo = function () {
+      $scope.timerTwo = setInterval($scope.timerFunctionTwo, 10);
+  };
+  
+  $scope.timerFunctionTwo = function () {
     drawTwo();
+
   }
   $scope.startFreqTwo()
-          },
+  },
           function(e){"Error with decoding audio data" + e.err});
       }
       requestTwo.send();
@@ -719,6 +697,7 @@ $scope.timerFunctionTwo = function () {
       playbackControlTwo.removeAttribute('disabled');
       loopstartControlTwo.removeAttribute('disabled');
       loopendControlTwo.removeAttribute('disabled');
+      select_two.setAttribute('disabled','disabled');
     }
     stopTwo.onclick = function() {
       sourceTwo.stop(0);
@@ -726,6 +705,7 @@ $scope.timerFunctionTwo = function () {
       playbackControlTwo.setAttribute('disabled', 'disabled');
       loopstartControlTwo.setAttribute('disabled', 'disabled');
       loopendControlTwo.setAttribute('disabled', 'disabled');
+      select_two.removeAttribute('disabled')
     }
     playbackControlTwo.oninput = function() {
       sourceTwo.playbackRate.value = playbackControlTwo.value;
@@ -741,8 +721,26 @@ $scope.timerFunctionTwo = function () {
     }
     }
             
-}])
+  }])
 
 app.controller('MainCtrl',function($scope,$http) {
     
 })
+
+    /*.............................not working yet................................*/
+
+    // $scope.deleteUser = function(current_user) {
+    //   $scope.user.current_user_view = current_user
+    //   saved_users.all_users().then(function(res) {
+    //       var all_user_data = res.data
+    //       console.log(res.data)
+    //       for(var user in $scope.user.current_user_view) {
+    //         if(all_user_data[user].username === $scope.user.current_user_view && all_user_data[user].id === all_user_data[user].id) {
+    //           console.log(all_user_data[user].id)
+    //           var user_result = {ID:all_user_data[user].id,name:all_user_data[user].username}
+    //           $http.post('/api/removeuser',user_result)
+    //         }
+    //       }
+    //         $http.post('/api/deleteuser',user_result)
+    //   })
+    // }

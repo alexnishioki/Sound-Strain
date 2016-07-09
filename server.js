@@ -1,4 +1,8 @@
 var express = require('express'),
+	// RecordRTC = require('recordrtc'),
+	// record = new RecordRTC('mediaStream,option'),
+	// canvasRecorder = new RecordRTC.CanvasRecorder('canvasElement,options'),
+	// gifRecorder = new RecordRTC.GifRecorder('canvasElement,options'),
 	bodyParser = require('body-parser'),
 	pg = require('pg'),
 	path = require('path'),
@@ -66,7 +70,7 @@ var express = require('express'),
 				}
 			console.log(stdout)
 				}) 
-  			},3000)
+  			},500)
 		})
 			res.end('It worked!')
 	})
@@ -154,22 +158,23 @@ app.post('/api/recordinglocation',function(req,res) {
 	var user = req.body.user,
 		name = req.body.name,
 		created = req.body.created,
-		path = req.body.path;
-		console.log('name: '+name+' user: '+user+' path: '+path)
-			knex('audio').insert({user:user,name:name+'.wav',
+		path = req.body.path,
+		bits = req.body.bits;
+		console.log('name: '+name+bits+' user: '+user+' path: '+path)
+			knex('audio').insert({user:user,name:name+bits,
 				created:created,file_path:path+".wav"})
 			.then(function(){
 				setTimeout(function() {
 				console.log(name)
 			child_process 
-			.exec("cd ../downloads && mv *distinctpersonalaudiofile* ../Soundstrain/public/users/"+user+" && cd ../Soundstrain/public/users/"+user+"&& mv *distinctpersonalaudiofile* "+name+".wav", function(err,stdout,stderr) {
+			.exec("cd ../downloads && mv *distinctpersonalaudiofile* ../Soundstrain/public/users/"+user+" && cd ../Soundstrain/public/users/"+user+"&& mv *distinctpersonalaudiofile* "+name+".wav && ffmpeg -i "+name+".wav -codec:a libmp3lame -qscale:a 2 "+name+bits+" && rm "+name+".wav", function(err,stdout,stderr) {
 				if(err) {
 					console.log(stdout)
 				console.log('failed ' + err.code)	
 				return
 			   		} 
 				})
-			},3000)
+			},500)
 		})
 			res.send()
 	})
@@ -246,6 +251,37 @@ app.post('/api/sharedtracks',function(req,res) {
 		// 		})
  	// 		})	
 		// })
+
+	app.post('/api/recordinglocationinternal',function(req,res) {
+				setTimeout(function() {
+			child_process 
+			.exec("SwitchAudioSource -s 'iShowU Audio Capture'", function(err,stdout,stderr) {
+				if(err) {
+					console.log(stdout)
+				console.log('failed ' + err.code)	
+				return
+			   		} 
+				})
+			},50)
+	
+			// res.send()
+	})
+
+
+	app.post('/api/recordinglocationexternal',function(req,res) {
+			setTimeout(function() {
+				child_process
+				.exec("SwitchAudioSource -s 'Built-in Output'",function(err,stdout,stderr) {
+					if(err) {
+						console.log(stdout)
+						console.log('failed' + err.code)
+						return
+					}
+				})
+			},50)
+	
+		// res.send()
+	})
 		
  	
  
@@ -276,6 +312,6 @@ app.post('/api/sharedtracks',function(req,res) {
   		res.sendFile(__dirname + '/index.html');
 	});
 
-	app.listen('3000',function() {
+	app.listen('3000','127.0.0.1',function() {
 		console.log('word')
 })

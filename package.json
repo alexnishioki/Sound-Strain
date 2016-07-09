@@ -8,17 +8,18 @@
   },
   "main": "index.js",
   "dependencies": {
-    "body-parser": "^1.15.0",
     "angular-materialize": "^0.1.4",
+    "body-parser": "^1.15.0",
     "express": "^4.13.4",
     "fluent-ffmpeg": "^2.0.1",
     "jquery-file-upload-middleware": "^0.1.7",
     "knex": "^0.10.0",
     "mkdirp": "^0.5.1",
     "ng-audio": "^0.0.2",
+    "pg": "^4.5.1",
+    "recordrtc": "^5.3.8",
     "request": "^2.69.0",
-    "rmdir": "^1.2.0",
-    "pg": "^4.5.1"
+    "rmdir": "^1.2.0"
   },
   "devDependencies": {},
   "scripts": {

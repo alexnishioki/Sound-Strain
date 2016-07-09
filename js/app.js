@@ -2,7 +2,6 @@ var app = angular.module('App',['ngRoute','ngAnimate','rzModule']);
 
 
 	app.config(function($routeProvider) {
-
 		$routeProvider
 		.when('/',{
 			templateUrl:'js/upload.html',
