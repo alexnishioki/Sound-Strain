@@ -93,9 +93,7 @@ app.controller('UploadCtrl',
       $('canvas').toggleClass('other')
     })
   });
-
-  // -webkit-filter:invert(90%);
-
+  
 
     $scope.allTracks = []
     $scope.currentTrack = function() {
@@ -262,7 +260,7 @@ app.controller('UploadCtrl',
         }   
       })
     }
-    
+    $scope.display_user_guy = [];
     $scope.currentUser = function(user,password) {
       $scope.display_user = loggedInUsers.listUser().name
       // $scope.logged_in_user = false
@@ -276,6 +274,7 @@ app.controller('UploadCtrl',
              all_user_data[cur].password === $scope.user.logged_in_password) {
               // loggedInUsers.removeUser()
               loggedInUsers.addUser(all_user_data[cur])
+              $scope.display_user_guy.push($scope.user.logged_in)
               $scope.display_user_btn = loggedInUsers.listUser().username || ""
                 console.log(loggedInUsers.listUser().username)
                 $scope.user.logged_in = "";

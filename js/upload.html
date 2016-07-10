@@ -163,9 +163,10 @@
 </div>
 <button id='v_button' ng-click='show_viz=!show_viz' class='btn' >A</button>
 <!-- <div id='user_background' > -->
-<button ng-show='log_out'  class='btn' id='btn_logout' ng-click='logged_in = !logged_in;current_user_logout();updateSound()'>sign out</button>
-<button ng-show='logged_in' class='btn signin_user' id='signin_user' ng-click='signin_user = !signin_user;log_out = !log_out' ng-hide='create_user'>sign in</button>
-<button class='btn show_user' ng-click='create_user = !create_user;' ng-hide='signin_user'>sign up</button>
+<button ng-show='log_out'  class='btn' id='btn_logout' ng-click='logged_in = !logged_in;current_user_logout();updateSound()' ng-hide='!logged_in'>sign out</button>
+<button ng-show='logged_in' class='btn signin_user' id='signin_user' ng-click='signin_user = !signin_user;log_out = !log_out' ng-hide='logged_in'>sign in</button>
+<button class='btn show_user' ng-click='create_user = !create_user;' ng-show='!signin_user' ng-hide='signin_user'>sign up</button>
+<button id='cold' class='show_user' ng-show='logged_in' ng-hide='!logged_in'>{{display_user_guy[0]}}</button>
 
 <!-- /*.............................................................*/
  -->
