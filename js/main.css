@@ -33,7 +33,7 @@ nav{
 	height:90px;
 	width:360px;
 	top:133px;
-	left:79px;
+	left:122px;
 	z-index:9999;
 	
 }
@@ -44,7 +44,7 @@ nav{
 	top:133px;
 	width:360px;
 	height:90px;
-	left:445px;
+	left:488px;
 	
 }
 
@@ -53,7 +53,7 @@ nav{
 	z-index:999999;
 		box-shadow: 2px 2px 5px #777777;
 	top:230px;
-	left:79px;
+	left:122px;
 	width:360px;
 	height:90px;
 	display: flex;
@@ -68,7 +68,7 @@ nav{
 	z-index:999999;
 		box-shadow: 2px 2px 5px #777777;
 	top:230px;
-	left:445px;
+	left:488px;
 	width:360px;
 	height:90px;
 	display: flex;
@@ -1809,7 +1809,7 @@ color:#000080;
 	top:330px;
 	left:10px;
 	z-index:9999;
-	width:120px;
+	width:60px;
 	height:30px;
 	background:url('yam_sketch.jpg');
 	-webkit-background-size: 3px;
@@ -1938,4 +1938,94 @@ color:#202020;
 	height:40px;
 	border-radius:5px;
 	opacity:1;
+}
+
+#toggle_play{
+	position:fixed;
+	z-index:999999;
+	left:390px;
+	top:330px;
+	width:90px;
+	height:30px;
+	color:#C41A1E;
+}
+
+#toggle_play_two{
+	position:fixed;
+	z-index:999999;
+	left:490px;
+	top:330px;
+	width:90px;
+	height:30px;
+	color:#C41A1E;
+}
+
+.reverse{
+	left:200px;
+	top:500px;
+}
+
+#v1{
+	position:fixed;
+	left:235px;
+	bottom:345px;
+	width:100px;
+}
+
+#v2{
+	background:black;
+	position:fixed;
+	left:635px;
+	bottom:345px;
+	width:100px;
+}
+
+#vol_label{
+	position:fixed;
+	font-family: 'Lobster', cursive;
+	left:240px;
+	color:#C41A1E;
+	bottom:343px;
+}
+
+#vol_label_two{
+	position:fixed;
+	font-family: 'Lobster', cursive;
+	left:640px;
+	color:#C41A1E;
+	bottom:343px;
+}
+
+#vol_comp{
+	position:fixed;
+	box-shadow: 2px 2px 5px #888888;
+	background:url('yam_sketch.jpg');
+	-webkit-background-size: 3px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 3px;
+/*    -webkit-filter:invert(90%);;
+    filter:invert(90%);*/
+	width:150px;
+	height:32px;
+	border-radius:30px;
+	left:210px;
+	bottom:345px;
+}
+
+#vol_comp_two{
+	position:fixed;
+	box-shadow: 2px 2px 5px #888888;
+	background:url('yam_sketch.jpg');
+	-webkit-background-size: 3px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 3px;
+/*    -webkit-filter:invert(90%);;
+    filter:invert(90%);*/
+	width:150px;
+	height:32px;
+	border-radius:30px;
+	left:610px;
+	bottom:345px;
 }

@@ -19,9 +19,12 @@
     </label>
     <button id='newLoad' class='btn' ng-click='loadSound()'>LOAD</button>
     <button class='btn btn-danger' ng-click="uploadFile(selected.name);updateSound()" >UPLOAD</button>
-	<button class='btn btn-default col-md-2 play' id='load' >PLAY</button>
+	<button class='btn btn-default col-md-2 play' id='load'>PLAY</button>
+
+    <button class='btn pause' id='toggle_play'>PAUSE</button>
+
     <!-- <button class='btn btn-default' id='play' ng-click='loadSound();track_list()'>LOAD</button> -->
-    <button class='btn btn-default stop' id='pause' >PAUSE</button>
+    <button class='btn btn-default stop' id='pause' >STOP</button>
     <button class='btn btn-default playSound' id='delete'
      ng-click="deleteTrack(selected.id,selected.name,selected.name);updateSound()">DELETE</button>
       <!-- <ul style='position:absolute;top:540px;left:30px;color:black'><h3 ng-repeat='(key,val) in selected'>{{key}}  -  {{val}}</h3>
@@ -79,6 +82,9 @@
       <div class='controlTwo'>
   <button class='btn btn-default col-md-2 playTwo' id='playTwo' >PLAY-#2</button>
     <button class='btn btn-default stopTwo' id='pauseTwo'>PAUSE-#2</button>
+
+      <button class='btn pause_two' id='toggle_play_two'>PAUSE-#2</button>
+
 </div>
     <div id='edit-playback-two' class='fadeInUp' ng-show='show_playback_two'>
       <h4  class='playback-label' id='playback-label'><span class='playback-label'>playback</span><span class='playback-label'>rate-2</span></h4>
@@ -105,15 +111,20 @@
 
 <!-- /*.........................audio quality....................................*/
  -->
-<select class='btn' ng-init="item = options[0]" ng-change='audio_quality(item.name);log()' ng-options="rate as rate.name for rate in bit_rate " id='audio_quality' ng-model='item' >
-<option value="">SAMPLE RATE</option>
+<select class='btn' ng-init="item = bit_rate[0]" ng-change='audio_quality(item.name);log()' ng-options="rate as rate.name for rate in bit_rate " id='audio_quality' ng-model='item' >
+<!-- <option value="">SAMPLE RATE</option> -->
     </select>
-    {{item.name}}
+  
 
    <!--   <select ng-options="size as size.name for size in sizes " ng-model="item" ng-change="update()"></select> -->
 
 <!-- /*.............................................................*/
  -->
+
+
+<!-- <button class=' btn reverse'>REVERSE TEST</button>
+ -->
+
 <button class='btn' id='playback_btn_two' ng-click='show_playback_two = !show_playback_two'>PLAYBACK-#2</button>
 <button class='btn' id='loop_btn_two' ng-click='show_loop_two=!show_loop_two'>LOOP-#2</button>
 
@@ -165,8 +176,8 @@
 <!-- <div id='user_background' > -->
 <button ng-show='log_out'  class='btn' id='btn_logout' ng-click='logged_in = !logged_in;current_user_logout();updateSound()' ng-hide='!logged_in'>sign out</button>
 <button ng-show='logged_in' class='btn signin_user' id='signin_user' ng-click='signin_user = !signin_user;log_out = !log_out' ng-hide='logged_in'>sign in</button>
-<button class='btn show_user' ng-click='create_user = !create_user;' ng-show='!signin_user' ng-hide='signin_user'>sign up</button>
-<button id='cold' class='show_user' ng-show='logged_in' ng-hide='!logged_in'>{{display_user_guy[0]}}</button>
+<button class='btn show_user' ng-click='create_user = !create_user;' ng-show='!signin_user || display_user_guy.length > 0' ng-hide='signin_user'>sign up</button>
+<button id='cold' class='show_user' ng-show='logged_in' ng-hide='!logged_in'>{{display_user_btn}}</button>
 
 <!-- /*.............................................................*/
  -->
@@ -220,6 +231,15 @@
   
 </div>
 
+<div id='vol_comp'>
+<input ng-model='value' type="range" min='0' max='1' step='0.01' value='1' class='volume' id='v1'>
+<p ng-model='value' id='vol_label'>{{(value * 100).toFixed(0)}}</p>
+</div>
+
+<div id='vol_comp_two'>
+<input ng-model='valueTwo' type="range" min='0' max='1' step='0.01' value='1' class='volume_two' id='v2'>
+<p ng-model='valueTwo' id='vol_label_two'>{{(valueTwo * 100).toFixed(0)}}</p>
+</div>
 
 
 <!-- <form name='del_user' ng-submit='deleteUser(...)'>

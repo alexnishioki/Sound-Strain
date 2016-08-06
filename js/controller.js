@@ -1,4 +1,4 @@
-var app = angular.module('App')
+ var app = angular.module('App')
 
 app.directive('fileModel', ['$parse', function ($parse) {
     return {
@@ -206,9 +206,11 @@ app.controller('UploadCtrl',
     $scope.bit_rate = [{name:'.mp3'},{name:'.wav'},{name:'.m4a'}];
 
     $scope.audio_quality = function(fidelity) {
+      $scope.change_bit.pop();
+      // console.log(`change_bit length ${$scope.change_bit.length}`)
       if(fidelity !== undefined){
         $scope.change_bit.unshift(fidelity)
-        console.log(`CHECKING -- ${$scope.change_bit}`)
+        // console.log(`CHECKING -- ${$scope.change_bit}`)
       }
     }
 
@@ -260,7 +262,10 @@ app.controller('UploadCtrl',
         }   
       })
     }
+
     $scope.display_user_guy = [];
+    $scope.$watch($scope.display_user_guy,true);
+
     $scope.currentUser = function(user,password) {
       $scope.display_user = loggedInUsers.listUser().name
       // $scope.logged_in_user = false
@@ -275,6 +280,7 @@ app.controller('UploadCtrl',
               // loggedInUsers.removeUser()
               loggedInUsers.addUser(all_user_data[cur])
               $scope.display_user_guy.push($scope.user.logged_in)
+              console.log($scope.display_user_guy)
               $scope.display_user_btn = loggedInUsers.listUser().username || ""
                 console.log(loggedInUsers.listUser().username)
                 $scope.user.logged_in = "";
@@ -478,6 +484,9 @@ app.controller('UploadCtrl',
                     
     var play = document.querySelector('.play');
     var stop = document.querySelector('.stop');
+    var pause = document.querySelector('.pause');
+    var reverse = document.querySelector('.reverse');
+    var volume_ctrl = document.querySelector('.volume')
     var playbackControl = document.querySelector('.playback-rate-control');
     var playbackValue = document.querySelector('.playback-rate-value');
     var select = document.querySelector('#select_one');
@@ -499,6 +508,9 @@ app.controller('UploadCtrl',
         console.log($scope.lastTrackListIndex)
       source = audioCtx.createBufferSource();
       analyser = audioCtx.createAnalyser();
+      osc = audioCtx.createOscillator();
+      volume = audioCtx.createGain();
+      volume.gain.value = volume_ctrl.value;
       var freq = new Uint8Array(analyser.frequencyBinCount)
       analyser.fftSize = 256;
       request = new XMLHttpRequest();
@@ -518,19 +530,18 @@ app.controller('UploadCtrl',
             source.loop = true;
             loopstartControl.setAttribute('max', Math.floor(songLength));
             loopendControl.setAttribute('max', Math.floor(songLength));
-            source.connect(analyser)
+            // osc.frequency.value = 440;
+            source.connect(volume)
+            volume.connect(analyser)
             analyser.getFloatFrequencyData(fFrequencyData);
             analyser.getByteFrequencyData(bFrequencyData);
             analyser.getByteTimeDomainData(bFrequencyData);
 
-            console.log(fFrequencyData)
-            console.log(bFrequencyData)
-
 
             analyser.connect(audioCtx.destination);
-            console.log(analyser)
-            console.log(bFrequencyData)
-            console.log(fFrequencyData)
+            // console.log(analyser)
+            // console.log(bFrequencyData)
+            // console.log(fFrequencyData)
 
             draw = function () {
     var width, height, barWidth, barHeight, barSpacing, frequencyData, barCount, loopStep, i, hue;
@@ -581,8 +592,37 @@ app.controller('UploadCtrl',
       loopstartControl.removeAttribute('disabled');
       loopendControl.removeAttribute('disabled');
     }
+
+
+
+
+    reverse.onClick = function(){
+      audioBufferSourceNode.playbackRate = -1;
+    }; 
+
+
+    volume_ctrl.oninput = function(){
+      volume.gain.value = volume_ctrl.value
+    }
+
+
+    pause.onclick = function() {
+    if(audioCtx.state === 'running') {
+      audioCtx.suspend().then(function() {
+        pause.textContent = 'RESUME';
+      });
+    } else if(audioCtx.state === 'suspended') {
+      audioCtx.resume().then(function() {
+        pause.textContent = 'PAUSE';
+      });  
+    }
+  }
+
+
     stop.onclick = function() {
+      $scope.playing = false;
       source.stop(0);
+      // console.log(`LOOK HERE ${$scope.playing}`)
       play.removeAttribute('disabled');
       playbackControl.setAttribute('disabled', 'disabled');
       loopstartControl.setAttribute('disabled', 'disabled');
@@ -611,6 +651,8 @@ app.controller('UploadCtrl',
     //second audio source
     var playTwo = document.querySelector('.playTwo');
     var stopTwo = document.querySelector('.stopTwo');
+    var pause_two = document.querySelector('.pause_two');
+    var volume_ctrl_two = document.querySelector('.volume_two');
     var playbackControlTwo = document.querySelector('.playback-rate-control-two');
     var playbackValueTwo = document.querySelector('.playback-rate-value-two');
     playbackControlTwo.setAttribute('disabled', 'disabled');
@@ -631,6 +673,8 @@ app.controller('UploadCtrl',
         console.log($scope.lastTrackListIndexTwo)
       sourceTwo = audioCtx.createBufferSource();
       analyserTwo = audioCtx.createAnalyser();
+      volumeTwo = audioCtx.createGain();
+      volumeTwo.gain.value = volume_ctrl_two.value;
       analyserTwo.fftSize = 256;
       requestTwo = new XMLHttpRequest();
       requestTwo.open('GET','../public/users/'+loggedInUsers.listUser().username+'/'+$scope.lastTrackListIndexTwo, true);
@@ -644,7 +688,8 @@ app.controller('UploadCtrl',
             sourceTwo.buffer = myBuffer;
             sourceTwo.playbackRate.value = playbackControlTwo.value;
             sourceTwo.loop = true;
-            sourceTwo.connect(analyserTwo)
+            sourceTwo.connect(volumeTwo);
+            volumeTwo.connect(analyserTwo)
             analyserTwo.getByteFrequencyData(frequencyDataTwo);
             analyserTwo.connect(audioCtx.destination);
             loopstartControlTwo.setAttribute('max', Math.floor(songLengthTwo));
@@ -698,6 +743,11 @@ app.controller('UploadCtrl',
       loopendControlTwo.removeAttribute('disabled');
       select_two.setAttribute('disabled','disabled');
     }
+
+    volume_ctrl_two.oninput = function() {
+      volumeTwo.gain.value = volume_ctrl_two.value;
+    }
+
     stopTwo.onclick = function() {
       sourceTwo.stop(0);
       playTwo.removeAttribute('disabled');
@@ -706,6 +756,19 @@ app.controller('UploadCtrl',
       loopendControlTwo.setAttribute('disabled', 'disabled');
       select_two.removeAttribute('disabled')
     }
+
+    pause_two.onclick = function() {
+    if(audioCtx.state === 'running') {
+      audioCtx.suspend().then(function() {
+        pause_two.textContent = 'RESUME';
+      });
+    } else if(audioCtx.state === 'suspended') {
+      audioCtx.resume().then(function() {
+        pause_two.textContent = 'PAUSE';
+      });  
+    }
+  }
+
     playbackControlTwo.oninput = function() {
       sourceTwo.playbackRate.value = playbackControlTwo.value;
       playbackValueTwo.innerHTML = playbackControlTwo.value;

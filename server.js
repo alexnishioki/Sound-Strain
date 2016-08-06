@@ -160,21 +160,21 @@ app.post('/api/recordinglocation',function(req,res) {
 		created = req.body.created,
 		path = req.body.path,
 		bits = req.body.bits;
-		console.log('name: '+name+bits+' user: '+user+' path: '+path)
+		console.log('name: '+name+bits+' user: '+user+' path: '+path+bits)
 			knex('audio').insert({user:user,name:name+bits,
 				created:created,file_path:path+".wav"})
 			.then(function(){
 				setTimeout(function() {
-				console.log(name)
-			child_process 
-			.exec("cd ../downloads && mv *distinctpersonalaudiofile* ../Soundstrain/public/users/"+user+" && cd ../Soundstrain/public/users/"+user+"&& mv *distinctpersonalaudiofile* "+name+".wav && ffmpeg -i "+name+".wav -codec:a libmp3lame -qscale:a 2 "+name+bits+" && rm "+name+".wav", function(err,stdout,stderr) {
+				console.log(name+bits)
+			child_process 																																											  //ffmpeg -i theguy.wav -codec:a libmp3lame -qscale:a 2 theguy.mp3 && rm -rf theguy.wav																				
+			.exec("cd ../downloads && mv *distinctpersonalaudiofile* ../Sound-Strain/public/users/"+user+" && cd ../Sound-Strain/public/users/"+user+"&& mv *distinctpersonalaudiofile* "+name+".wav && ffmpeg -i "+name+".wav -codec:a libmp3lame -qscale:a 2 "+name+bits+" && rm "+name+".wav", function(err,stdout,stderr) {
 				if(err) {
 					console.log(stdout)
 				console.log('failed ' + err.code)	
 				return
 			   		} 
 				})
-			},500)
+			},2000)
 		})
 			res.send()
 	})
@@ -312,6 +312,6 @@ app.post('/api/sharedtracks',function(req,res) {
   		res.sendFile(__dirname + '/index.html');
 	});
 
-	app.listen('3000','127.0.0.1',function() {
-		console.log('word')
+	app.listen('3000',function() {
+		console.log('word-3000')
 })

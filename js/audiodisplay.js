@@ -13,6 +13,7 @@ function drawBuffer( width, height, context, data ) {
             if (datum > max)
                 max = datum;
         }
+        console.log(`width: ${width} height: ${height} context: ${context} data: ${data}`)
         context.fillRect(i,(1+min)*amp,1,Math.max(1,(max-min)*amp));
     }
 }
