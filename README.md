@@ -1,6 +1,7 @@
 
 # Sound-Strain
 Sound-Straing allows a user to Record, Upload, Edit, Layer, and Share Tracks.
+
 ![Alt text](./ssrm.png?raw=true "Optional Title")
 
 
