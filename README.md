@@ -1,10 +1,9 @@
 
 # Sound-Strain
-
+Sound-Straing allows a user to Record, Upload, Edit, Layer, and Share Tracks.
 ![Alt text](./ssrm.png?raw=true "Optional Title")
 
 
-Sound-Straing allows a user to Record, Upload, Edit, Layer, and Share Tracks.
 
 ## Getting Started
 
@@ -25,7 +24,7 @@ ensure the following are installed
 '><li>iShowU-Audio-Capture</li></a>
 
 ```
-Give examples
+<!-- Give examples -->
 ```
 
 <!-- ### Installing
@@ -99,4 +98,3 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 * Hat tip to anyone who's code was used
 * Inspiration
 * etc
- -->
