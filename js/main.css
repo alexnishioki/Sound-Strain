@@ -20,12 +20,32 @@ nav{
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: 100px;
-    filter:;
+    filter:none;
 
 }
 
 /*..................................graphic-display................................*/
 
+#select_one{
+	position:fixed;
+	background:url('yam_sketch.jpg')repeat fixed;
+	font-family: 'Lobster', cursive;
+    	-webkit-background-size: 3px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 3px;
+	border:none;
+	color:#202020;
+	border:none;
+	left:340px;
+	top:470px;
+	z-index:9999;
+	padding:0 0 0 45px;
+	width:140px;
+	font-size:16px;
+	-webkit-filter:none;
+	text-shadow:none;
+}
 
 #analyser{
 	position:fixed;
@@ -129,7 +149,6 @@ z-index:400;
     background-size: 3px;
 	width:180px;
 	-webkit-filter:invert(90%);
-	/*-webkit-filter:invert(90%);*/
 	width: 95%;
 	height: 35%;
 	/*border:1px solid #45484d;*/
@@ -137,6 +156,16 @@ z-index:400;
 */	border-radius:10px;
 z-index:400;
 	transition:all 4.35s cubic-bezier(0, 1.4, 1, 1);
+}
+
+select .other{
+	background:url('yam_sketch.jpg')repeat fixed;
+    	-webkit-background-size: 3px;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 3px;
+    -webkit-filter:invert(90%);
+    filter:invert(90%);
 }
 
 canvas:hover{
@@ -298,6 +327,7 @@ select:active{
     font-size:16px;
     height:38px;
     top: 55px;
+    z-index:9999;
 /*    text-shadow:1px 1px 1px #888888;
 */    box-shadow: 2px 2px 5px #888888;
      -webkit-transition:all .25s cubic-bezier(0, 1.4, 1, 1);
@@ -462,6 +492,7 @@ color:#780000;
 	background-size: 3px;
 	border:none;
 	color:#202020;
+	z-index:9999;
 	transition:all 4.35s cubic-bezier(0, 1.4, 1, 1);
 	box-shadow: 1px 2px 5px #888888;
 	font-style:bold;
@@ -550,6 +581,7 @@ input[type="text"]::-webkit-input-placeholder {
 /*___SELECT-TRACK-#2___*/
 
 #select-two-id{
+	position:fixed;
 	background:url('yam_sketch.jpg')repeat fixed;
     	-webkit-background-size: 3px;
     -moz-background-size: cover;
@@ -558,10 +590,11 @@ input[type="text"]::-webkit-input-placeholder {
 	border:none;
 	color:#202020;
 	border:none;
-	left:62 0px;
 	left:490px;
+	top:470px;
 	padding:0 0 0 25px;
 	width:115px;
+	z-index:9999;
 	-webkit-filter:none;
 	font-family: 'Lobster', cursive;
 	text-shadow:none;
@@ -732,6 +765,7 @@ color:#E5E57F;
 	height:38px;
 	border-radius:8px;
 	border:none;
+	z-index:9999;
 	background:url('yam_sketch.jpg')repeat fixed;
     	-webkit-background-size: 3px;
     -moz-background-size: cover;
@@ -951,7 +985,7 @@ color:#E5E57F;
     -o-background-size: cover;
     background-size: 5px;
 	width:180px;
-	-webkit-filter:invert(90%);
+	/*-webkit-filter:invert(90%);*/
 
 }
 
@@ -975,7 +1009,7 @@ color:#E5E57F;
     -o-background-size: cover;
     background-size: 5px;
 	width:180px;
-	-webkit-filter:invert(90%);
+	/*-webkit-filter:invert(90%);*/
 	top:540px;
 	height:135px;
 	border-radius:12px;
@@ -1094,7 +1128,7 @@ position:fixed;
     -o-background-size: cover;
     background-size: 5px;
 	width:180px;
-	-webkit-filter:invert(90%);
+	/*-webkit-filter:invert(90%);*/
 	border-radius:12px;
 	width:180px;
 }
@@ -1113,7 +1147,7 @@ position:fixed;
     -o-background-size: cover;
     background-size: 5px;
 	width:180px;
-	-webkit-filter:invert(90%);
+	/*-webkit-filter:invert(90%);*/
 	border-radius:10px;
 	width:220px;
 	
@@ -1657,13 +1691,13 @@ th{
 
 #slider_edit{
 position:fixed;
-	left:805px;
+	left:843px;
 	bottom:0px;
-	margin-left:20px;
+	margin-left:30px;
 	margin-top:10px;
 	text-align:center;
-	top:320px;
-	height:345px;
+	top:335px;
+	height:330px;
 	box-shadow: 2px 2px 5px #888888;
         background:url('yam_sketch.jpg')repeat fixed;
     	-webkit-background-size: 3px;
@@ -1671,17 +1705,18 @@ position:fixed;
     -o-background-size: cover;
     background-size: 4px;
 	width:180px;
-	-webkit-filter:invert(90%);
+	z-index:9999;
+	/*-webkit-filter:invert(90%);*/
 	border-radius:10px;
 	opacity:.9;
-	width:220px;
+	width:200px;
 }
 
 #slider_edit_two{
 	position:fixed;
 	left:1035px;
 	bottom:0px;
-	margin-left:20px;
+	margin-left:40px;
 	margin-top:10px;
 	text-align:center;
 	background:url('yam_sketch.jpg')repeat fixed;
@@ -1690,13 +1725,14 @@ position:fixed;
     -o-background-size: cover;
     background-size: 4px;
     filter:invert(90%);
-    -webkit-filter:invert(90%);
-	top:320px;
-	height:345px;
+    /*-webkit-filter:invert(90%);*/
+	top:335px;
+	z-index:9999;
+	height:330px;
 	box-shadow: 2px 2px 5px #888888;
     opacity:.9;
 	border-radius:10px;
-	width:220px;
+	width:200px;
 }
 
 #help{
@@ -1736,17 +1772,19 @@ color:red;
    -webkit-text-fill-color: transparent;*/}
 
 #help_info{
-	position:absolute;
+	position:fixed;
+	overflow:scroll;
 	left:0px;
 	bottom:0px;
 	margin-left:100px;
 	top:70px;
 	height:615px;
+	font-size:16px;
+	font-family: 'Lato', sans-serif;
 	color:#FF0000 ;
-	
 	text-shadow:1px 1px 1px 	#003366;
 	box-shadow: 2px 2px 5px #888888;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.75) 0%,rgba(0,0,0,.5) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.75) 0%,rgba(0,0,0,.8) 100%);
     z-index:999999;
 	border-radius:10px;
 	width:1000px;
@@ -1871,7 +1909,8 @@ select{
 	color:#FFF5C3;
 }
 
-#select_one{
+/*#select_one{
+	position:fixed;
 	background:url('yam_sketch.jpg')repeat fixed;
 	font-family: 'Lobster', cursive;
     	-webkit-background-size: 3px;
@@ -1881,14 +1920,15 @@ select{
 	border:none;
 	color:#202020;
 	border:none;
-	left:62 0px;
 	left:340px;
+	top:470px;
+	z-index:9999;
 	padding:0 0 0 45px;
 	width:140px;
 	font-size:16px;
 	-webkit-filter:none;
 	text-shadow:none;
-}
+}*/
 
 #select_one:hover{
 background:url('yam_sketch.jpg')repeat fixed;
@@ -1917,10 +1957,20 @@ color:#202020;
 	color:#202020;
 }
 
-#word{
+#alternate{
 	position:fixed;
-	width:60px;
+	width:29px;
 	left:11px;
+	top:225px;
+	height:28px;
+	color:#C41A1E;
+	padding-top:3px;
+}
+
+#alternate_two{
+	position:fixed;
+	width:29px;
+	left:42px;
 	top:225px;
 	height:28px;
 	color:#C41A1E;
@@ -1947,7 +1997,7 @@ color:#202020;
 	top:330px;
 	width:90px;
 	height:30px;
-	color:#C41A1E;
+	color:black;
 }
 
 #toggle_play_two{
@@ -1957,7 +2007,7 @@ color:#202020;
 	top:330px;
 	width:90px;
 	height:30px;
-	color:#C41A1E;
+	color:black;
 }
 
 .reverse{
@@ -1968,7 +2018,8 @@ color:#202020;
 #v1{
 	position:fixed;
 	left:235px;
-	bottom:345px;
+	z-index:99999;
+	bottom:320px;
 	width:100px;
 }
 
@@ -1976,7 +2027,7 @@ color:#202020;
 	background:black;
 	position:fixed;
 	left:635px;
-	bottom:345px;
+	bottom:320px;
 	width:100px;
 }
 
@@ -1984,16 +2035,16 @@ color:#202020;
 	position:fixed;
 	font-family: 'Lobster', cursive;
 	left:240px;
-	color:#C41A1E;
-	bottom:343px;
+	color:#AAFFCCDD;
+	bottom:320px;
 }
 
 #vol_label_two{
 	position:fixed;
 	font-family: 'Lobster', cursive;
 	left:640px;
-	color:#C41A1E;
-	bottom:343px;
+	color:#AAFFCCDD;
+	bottom:320px;
 }
 
 #vol_comp{
@@ -2010,7 +2061,7 @@ color:#202020;
 	height:32px;
 	border-radius:30px;
 	left:210px;
-	bottom:345px;
+	bottom:315px;
 }
 
 #vol_comp_two{
@@ -2027,5 +2078,26 @@ color:#202020;
 	height:32px;
 	border-radius:30px;
 	left:610px;
-	bottom:345px;
+	bottom:315px;
 }
+
+ li{
+  margin: 0;
+ }
+ li{
+  list-style-type: none;
+}
+
+ li {
+  text-indent: -5px;
+}
+li:before {
+  content: "-";
+  text-indent: -5px;
+}
+
+.zmdi-view-headline{
+marg-right:20px;
+}
+
+

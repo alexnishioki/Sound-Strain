@@ -89,9 +89,12 @@ app.controller('UploadCtrl',
   function($scope,$http,$timeout,$window,fileUpload,getUserData,savedFiles,saved_users,loggedInUsers) {
   $(document).ready(function(){
     $(this).scrollTop(0);
-    $('#word').on('click',function(){
-      $('canvas').toggleClass('other')
+    $('#alternate').on('click',function(){
+      $('#select_one,canvas,.btn,select,#download_input,#merge_input,#audio_quality,#shared_input, #edit-playback, #edit-loop, #edit-playback-two, #edit-loop-two,#slider_edit_two,#slider_edit,#vol_comp_two,#vol_comp').toggleClass('other')
     })
+    $('#alternate_two').on('click',function(){
+      $('#select_one,canvas,.btn,select,#download_input,#merge_input,#audio_quality,#shared_input, #edit-playback, #edit-loop, #edit-playback-two, #edit-loop-two,#slider_edit_two,#slider_edit,html').toggleClass('other')
+    });
   });
   
 
@@ -202,7 +205,7 @@ app.controller('UploadCtrl',
         }
     }
 
-    $scope.change_bit = [];
+    $scope.change_bit = ['.mp3'];
     $scope.bit_rate = [{name:'.mp3'},{name:'.wav'},{name:'.m4a'}];
 
     $scope.audio_quality = function(fidelity) {
@@ -536,12 +539,7 @@ app.controller('UploadCtrl',
             analyser.getFloatFrequencyData(fFrequencyData);
             analyser.getByteFrequencyData(bFrequencyData);
             analyser.getByteTimeDomainData(bFrequencyData);
-
-
             analyser.connect(audioCtx.destination);
-            // console.log(analyser)
-            // console.log(bFrequencyData)
-            // console.log(fFrequencyData)
 
             draw = function () {
     var width, height, barWidth, barHeight, barSpacing, frequencyData, barCount, loopStep, i, hue;
@@ -593,18 +591,14 @@ app.controller('UploadCtrl',
       loopendControl.removeAttribute('disabled');
     }
 
-
-
-
-    reverse.onClick = function(){
-      audioBufferSourceNode.playbackRate = -1;
-    }; 
+    // reverse.onClick = function(){
+    //   audioBufferSourceNode.playbackRate = -1;
+    // }; 
 
 
     volume_ctrl.oninput = function(){
       volume.gain.value = volume_ctrl.value
     }
-
 
     pause.onclick = function() {
     if(audioCtx.state === 'running') {
@@ -647,8 +641,8 @@ app.controller('UploadCtrl',
     var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
     var sourceTwo;
     var songLengthTwo;
-
-    //second audio source
+/*..................................second audio source...................................*/
+    
     var playTwo = document.querySelector('.playTwo');
     var stopTwo = document.querySelector('.stopTwo');
     var pause_two = document.querySelector('.pause_two');
