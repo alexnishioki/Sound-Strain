@@ -35,8 +35,6 @@ ensure the following are installed
 <li><p><strong>LOOP/LOOP-#2 - </strong>Click the loop buttons to display a set of loop controls. Move the start loop slider to a position you wish the track to begin with, and position the loop end slider at any point past the start point that you wish to repeat. You can change the loop however you like while the track/tracks are playing.</p></li>
 <li><p><strong>TRACK-RATE/PLAYBACK-#2 - </strong>The track rate/playback-#2 buttons are each used to display corresponding track rate controls. Manipulate the speed and pitch of your tracks. Try mixing and combining the loops and playback rates.</p></li>
 <li><p><strong>JOIN - </strong>Merge the current selected tracks together and create a new track. Give your track a name and hit join to combine and save it. You will see your new track displayed with the others. You can record a track, send it to a friend, and continue to combine them until you're happy with the results. The original copies are stored seperately and still available to work with.</p></li>
-<li><p><strong>HELP - </strong>overview of Sound-Strain controls</p></li>
-<li><p><strong>HELP - </strong>overview of Sound-Strain controls</p></li>
 <li><p><strong>PAUSE/RESUME - </strong>pause and resume either track individually</p></li>
 <li><p><strong>A - </strong>manipulate the lower left/lower right analyser presentation</p></li>
 <li><p><strong>MIC OFF - </strong>ensure iShowU-Audio-Capture is installed "check audio midi - enter command space and type audio. The mic off button sets the audio to internal sound. All sounds played internally may be recorded and altered.</p></li>
