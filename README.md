@@ -23,7 +23,7 @@ ensure the following are installed
 
 <a href='https://support.shinywhitebox.com/hc/en-us/articles/204161459-Installing-iShowU-Audio-Capture
 '><li>iShowU-Audio-Capture</li></a>
-
+r
 <h2>Recording and Sharing Tracks</h2>
 <p></p>
 <li><p><strong>RECORD - </strong>name your track and click to start recording. Click again to pause and/or finish recording.</p></li>
@@ -35,6 +35,8 @@ ensure the following are installed
 <li><p><strong>TRACK-RATE/PLAYBACK-#2 - </strong>The track rate/playback-#2 buttons are each used to display corresponding track rate controls. Manipulate the speed and pitch of your tracks. Try mixing and combining the loops and playback rates.</p></li>
 <li><p><strong>JOIN - </strong>Merge the current selected tracks together and create a new track. Give your track a name and hit join to combine and save it. You will see your new track displayed with the others. You can record a track, send it to a friend, and continue to combine them until you're happy with the results. The original copies are stored seperately and still available to work with.</p></li>
 <li><p><strong>PAUSE/RESUME - </strong>pause and resume either track individually</p></li>
+<li><p><strong>A(analyser) - </strong>manipulate the lower left/lower right analyser presentation</p></li>
+<li><p><strong>HELP - </strong>overview of Sound-Strain controls</p></li>
 </ul>
 
 
