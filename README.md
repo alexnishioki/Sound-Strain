@@ -24,8 +24,6 @@ ensure the following are installed
 <a href='https://support.shinywhitebox.com/hc/en-us/articles/204161459-Installing-iShowU-Audio-Capture
 '><li>iShowU-Audio-Capture</li></a>
 
-```
-
 <h2>Recording and Sharing Tracks</h2>
 <p></p>
 <li><p><strong>RECORD - </strong>name your track and click to start recording. Click again to pause and/or finish recording.</p></li>
