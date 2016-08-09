@@ -39,8 +39,8 @@ ensure the following are installed
 <li><p><strong>HELP - </strong>overview of Sound-Strain controls</p></li>
 <li><p><strong>PAUSE/RESUME - </strong>pause and resume either track individually</p></li>
 <li><p><strong>A(analyser) - </strong>manipulate the lower left/lower right analyser presentation</p></li>
-<li><p><strong><i class="zmdi zmdi-mic-off"></i> - </strong>ensure iShowU-Audio-Capture is installed "check audio midi - enter command space and type audio. The mic off button sets the audio to internal sound. All sounds played internally may be recorded and altered.</p></li>
-<li><p><strong><i class="zmdi zmdi-mic"></i> - </strong>ensure iShowU-Audio-Capture is installed "check audio midi - enter command space and type audio. The mic off button sets the audio to internal sound. All sounds played externally may be recorded and altered.</p></li>
+<li><p><strong>MIC OFF - </strong>ensure iShowU-Audio-Capture is installed "check audio midi - enter command space and type audio. The mic off button sets the audio to internal sound. All sounds played internally may be recorded and altered.</p></li>
+<li><p><strong>MIC ON - </strong>ensure iShowU-Audio-Capture is installed "check audio midi - enter command space and type audio. The mic off button sets the audio to internal sound. All sounds played externally may be recorded and altered.</p></li>
 <li><p><strong>HELP - </strong>overview of Sound-Strain controls</p></li>
 </ul>
 
