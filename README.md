@@ -2,7 +2,7 @@
 # Sound-Strain
 <p><strong>Sound-Strain allows a user to Record, Upload, Edit, Layer, and Share Tracks.</strong></p>
 
-![Alt text](./ssng.png?raw=true "Optional Title")
+![Alt text](./cool.png?raw=true "Optional Title")
 
 
 
